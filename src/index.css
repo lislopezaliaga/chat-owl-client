@@ -27,10 +27,12 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .containerRegister {
-  width: 50%;
+  width: 70%;
+  
 }
 
 .boxForm {
@@ -38,9 +40,11 @@ code {
 }
 
 .input {
-  margin: 0.5em;
+  margin: 4% 0;
   width: 85%;
+  height: 18px;
   padding: .7em;
+  font-size: 20px;
 
   border-width: 0px 1px 1px 1px;
   border-style: solid;
@@ -48,13 +52,25 @@ code {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
 }
+p{
+ font-weight: 0;
+}
+strong{
+  color: #2596BE;
+  
+}
 
 .button {
   padding: 0.3em;
+  margin: 5% 0;
   width: 90%;
+  height: 49px;
   background: #2596BE;
   border-radius: 8px;
   color: #fff;
   font-weight: bold;
   font-size: 20px;
+}
+.logoOwl{
+  width: 35%;
 }
