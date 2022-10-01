@@ -13,64 +13,160 @@ code {
     monospace;
 }
 
-/* clases generales */
-.containerGeneral {
-  padding: 0;
-  margin: 0;
+/* login */
+.generalContainer {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  font-family: 'Lato';
 }
 
-.containerCenter {
+.leftContainer {
+  width: 55%;
+  height: 100vh;
+  background-color: #77ADDE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgBuhoAvion {
+  width: 60%;
+}
+
+.containerRegister {
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 1em;
 }
 
-.containerRegister {
-  width: 70%;
-  
+.imgLogo {
+  width: 20%;
+
 }
 
 .boxForm {
-  width: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+p{
+  font-size: .8em;
+  margin: 1.5em;
 }
 
 .input {
-  margin: 4% 0;
-  width: 85%;
-  height: 18px;
-  padding: .7em;
-  font-size: 20px;
-
+  width: 65%;
+  padding: .5em;
+  margin: 1em;
+  background: #FFFFFF;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
-  border-color: #000;
+  border-color: #737272;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-}
-p{
- font-weight: 0;
-}
-strong{
-  color: #2596BE;
-  
+  font-size: 18px;
 }
 
 .button {
-  padding: 0.3em;
-  margin: 5% 0;
-  width: 90%;
-  height: 49px;
-  background: #2596BE;
+  background: #116CDD;
   border-radius: 8px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
+  width: 45%;
+  padding: 0.5em 0em;
+  border: none;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.5em;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin-top: .5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
-.logoOwl{
-  width: 35%;
+
+/* css de home */
+.generalContainerHome{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.nav{
+  display: flex;
+  background-color: #116CDD;
+  width: 100%;
+  height: 10%;
+  padding: .5em 0;
+}
+.boxBuhoLogo{
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+}
+.boxMenu{
+  display: flex;
+  justify-content: flex-end;
+}
+.boxUser{
+  background-color: #737272;
+  width: 30%;
+  display: block;
+  justify-content:right;
+  text-align: center;
+  align-items: center;
+}
+.avatar{
+  width: 40%;
+}
+.nameUser{
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-family: 'Lato';
+}
+.generalBoxBodyHome{
+  display: flex;
+  background-color: red;
+}
+.boxBodyHome{
+  width: 33.33%;
+  background-color:green;
+  height: 100uvh;
+}
+
+@media only screen and (max-width: 900px) {
+ 
+    .input, .button {
+        font-size: 15px;
+        width: 100%;
+    }
+ 
+}
+
+@media only screen and (max-width: 573px) {
+ 
+  .leftContainer {
+     display: none;
+  }
+  .containerRegister{
+    width: 80%;
+  }
+  .input{
+    width: 100%;
+  }
+  
 }
