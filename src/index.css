@@ -59,11 +59,11 @@ code {
   justify-content: center;
 }
 
-h1{
+h1 {
   text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
 }
 
-p{
+p {
   font-size: .8em;
   margin: 1.5em;
 }
@@ -99,74 +99,276 @@ p{
 }
 
 /* css de home */
-.generalContainerHome{
+.generalContainerHome {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.nav{
+
+.nav {
   display: flex;
-  background-color: #116CDD;
+  background-color: #77ADDE;
+  ;
   width: 100%;
-  height: 10%;
-  padding: .5em 0;
+  height: 8vh;
+  padding: .2em 0;
 }
-.boxBuhoLogo{
+
+.boxBuhoLogo {
   display: flex;
   justify-content: flex-start;
   width: 80%;
 }
-.boxMenu{
+
+.boxMenu {
   display: flex;
   justify-content: flex-end;
+  width: 20%;
+  align-items: center;
 }
-.boxUser{
-  background-color: #737272;
+
+.boxUser {
+  /* background-color: #737272; */
   width: 30%;
   display: block;
-  justify-content:right;
+  justify-content: right;
   text-align: center;
   align-items: center;
 }
-.avatar{
-  width: 40%;
+
+.avatar {
+  width: 50px;
 }
-.nameUser{
+.nameUser {
   padding: 0;
-  margin: 0;
+  margin: -15% 0 0 0;
   color: #fff;
   font-family: 'Lato';
-}
-.generalBoxBodyHome{
-  display: flex;
-  background-color: red;
-}
-.boxBodyHome{
-  width: 33.33%;
-  background-color:green;
-  height: 100uvh;
+  font-size: 10px;
 }
 
+.generalBoxBodyHome {
+  display: flex;
+
+  height: 98vh;
+}
+
+.boxBodyHome {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  box-shadow: 9px 0px 4px rgb(0 0 0 / 25%);
+  background-blend-mode: luminosity;
+  align-items: center;
+  height: 91vh;
+  z-index: 1;
+}
+
+.boxMessage {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: #DEE8F1;
+  align-items: center;
+  height: 91vh;
+  position: relative;
+  box-shadow: inset -9px 0px 4px rgb(0 0 0 / 25%);
+
+
+}
+
+.cerrarSesion {
+  width: 30px;
+  height: 30px;
+  margin-right: 8%;
+}
+
+h2 {
+  font-size: 20px;
+
+}
+
+.boxChanel {
+  display: flex;
+  width: 90%;
+  margin-top: 8%;
+  height: 70vh;
+  border-radius: 9px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nameChanel {
+  display: flex;
+  font-size: 18px;
+  width: 80%;
+  margin-top: 1%;
+  align-items: center;
+}
+
+.nameChanelHome {
+  display: flex;
+  width: 30%;
+  margin: 2% 0;
+  justify-content: center;
+  text-align: center;
+  border-radius: 9px;
+  background-color: #2F4152;
+
+}
+
+.createChanel {
+  display: flex;
+  align-items: center;
+}
+
+.inputChanel {
+  border-radius: 8px;
+  border: 0.5px solid black;
+  font-size: 25px;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.buttonChanel {
+  width: 23%;
+  border-radius: 8px;
+  height: 30px;
+  background-color: #116CDD;
+  border: 0.3px solid;
+
+}
+
+#chatNames {
+  width: 70%;
+  color: #ffff;
+  margin: 0;
+  padding: 3% 0;
+}
+
+.sendText {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 3%;
+  left: 0;
+
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nameMessage {
+  margin: 0 4%;
+}
+
+.inputSend {
+  height: 30px;
+  width: 60%;
+  border-radius: 9px;
+  border: 0.5px solid;
+  margin: 0 3%
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+}
+
+.message {
+  display: flex;
+
+}
+
+.boxpaper {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border-radius: 9px;
+  background-color: #116CDD;
+
+}
+
+.paper {
+  width: 30px;
+  height: 90%;
+}
+
+.nameChanelP {
+  margin: 2%;
+  font-size: 17px;
+}
+
+.userContent {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  border-radius: 14px;
+  border-color: #000000;
+  border-width: 0px 1px 1px 1px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 45px;
+  font-size: 25px;
+  margin: 2% 0;
+}
+
+.messageContainer {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.textMessage {
+  border: 1px solid #116CDD;
+  border-radius: 20px;
+  padding: 2%;
+  margin: 1%;
+  background: #fff;
+}
+
+.avatarUser {
+  width: 35px;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: greenyellow;
+}
+.imgAvatar{
+  width: 10%;
+}
 @media only screen and (max-width: 900px) {
- 
-    .input, .button {
-        font-size: 15px;
-        width: 100%;
-    }
- 
+
+  .input,
+  .button {
+    font-size: 15px;
+    width: 100%;
+  }
+
 }
 
 @media only screen and (max-width: 573px) {
- 
+
   .leftContainer {
-     display: none;
+    display: none;
   }
-  .containerRegister{
+
+  .containerRegister {
     width: 80%;
   }
-  .input{
+
+  .input {
     width: 100%;
   }
-  
+
 }
