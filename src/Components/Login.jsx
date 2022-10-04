@@ -2,11 +2,16 @@ import React from 'react';
 import logo from '../images/logo.png'
 import buhoAvion from '../images/buhoAvion.png';
 import {useForm} from 'react-hook-form';
+import { Link, useNavigate} from "react-router-dom";
+
 
 export const Login = () => {
   const { register , handleSubmit,formState:{errors} } = useForm ( ) ;
+  let navigate = useNavigate();
 
   const onSubmit = ( data ) => {
+  
+    navigate("register");
     console.log( data ) ;
     if(data){
 
@@ -29,7 +34,7 @@ export const Login = () => {
               {errors.password?.type==='required'&& <label>'Este campo es requerido'</label>}
               <input className="button"  type="submit" value="Registrarse"/>
           </form>
-          <p>Si no tienes una cuenta, regístrate <strong>Aquí</strong></p>
+          <p>Si no tienes una cuenta, regístrate <Link to="/register">Aquí</Link></p>
 
       </div>
         
