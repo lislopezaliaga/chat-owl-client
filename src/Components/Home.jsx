@@ -1,24 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import buhoLogo from '../images/buhoLogo.png';
 import exit from '../images/exit.png';
 import user from '../images/user.png';
 import paper from '../images/paper.png';
 import chanel from '../images/chanel.png';
 import { useForm } from 'react-hook-form';
+import io from "socket.io-client";
 
+const socket = io('http://localhost:4000');
 export const Home = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const { register, handleSubmit } = useForm();
+
+  const [message, setMessage] = useState('');
+
+  const [messages, setMessages] = useState([]);
+
+  const handleSubmitInput = (e) => {
+    e.preventDefault();
+    // console.log(message);
+    socket.emit('chatmessage', message);
+    const newMessage={
+      body:message,
+      from:"me"
+    }
+    setMessages([...messages,newMessage])
+    setMessage('');
   }
-  const onCreate = (data) => {
-    console.log(data);
-  }
-  const saveData = (data) => {
-    console.log(data);
-  }
-  
+  useEffect(() => {
+    const receiveMessage = message => {
+      console.log(message)
+      setMessages([...messages,{
+        body:message.body,
+        from:message.from
+      }])
+    }
+    socket.on('message', receiveMessage)
+    return () => {
+      socket.off('message', receiveMessage)
+    }
+  }, [messages])
+  // socket.on('chat message', function(msg) {
+  //   // const item = document.createElement('li');
+  //   // item.textContent = msg;
+  //   // messages.appendChild(item);
+  //   // window.scrollTo(0, document.body.scrollHeight);
+  //   console.log(msg);
+  // });
+  // const onCreate = (data) => {
+  //   console.log(data);
+  // }
+  // const saveData = (data) => {
+  //   if (input.value) {
+  //     socket.emit('chat message', input.value);
+  //     input.value = '';
+  //   }
+  //   console.log(data);
+  // }
+
   // function App(props){
   //   let [inputValue, setInputValue] = useState("")
   //   console.log(inputValue)
@@ -26,7 +66,7 @@ export const Home = () => {
   //             onChange={(event) => setInputValue(event.target.value)}>
   //          </input>;
   // }
-  
+
   return (
     <div className='generalContainerHome'>
       <div className='nav'>
@@ -46,9 +86,9 @@ export const Home = () => {
         <div className='boxBodyHome'>
           <h2>Canales</h2>
           <div className='createChanel'>
-            <form onSubmit={handleSubmit(onCreate)}>
-              <input className='inputChanel' type='text' {...register('nameChanel', { required: true })} />
-              {errors.nameChanel?.type === 'required' && <label>'Este campo es requerido'</label>}
+            <form >
+              <input className='inputChanel' type='text' />
+              {/* {errors.nameChanel?.type === 'required' && <label>'Este campo es requerido'</label>} */}
               <input className='buttonChanel' type='submit' value='crear' />
             </form>
 
@@ -78,43 +118,39 @@ export const Home = () => {
             <h2 id='chatNames'>#Kittychat</h2>
           </div>
           <div className='messageContainer'>
-            <div className='messageContent'>
-              <label className='nameMessage'>Daniela</label>
-              <div className='message'>
-                <p className='textMessage'>Hola Como estas</p>
-              </div>
-            </div>
 
-            <div className='messageContent'>
-              <label className='nameMessage'>Pao</label>
-              <div className='message'>
-                <p className='textMessage'>Durmiendo</p>
+            {messages.map((message,index) => (
+              <div key={index} className='messageContent'>
+                <label className='nameMessage'>Eli{message.from}</label>
+                <div className='message'>
+                  <p className='textMessage'>{message.body}</p>
+                </div>
               </div>
-            </div>
-            <div className='messageContent'>
-              <label className='nameMessage'>Gaby</label>
-              <div className='message'>
-                <p className='textMessage'>Pero debemos avanzar</p>
-              </div>
-            </div>
-            <div className='messageContent'>
-              <label className='nameMessage'>Eli</label>
-              <div className='message'>
-                <p className='textMessage'>Como siempre Pollys</p>
-              </div>
-            </div>
+            ))}
+
+
+
+
+
             <div className='sendText'>
-              
-                <input className='inputSend' type='text' />
-           
-                
-                  <div className='boxpaper'>
-                  <button type='submit' onClick={saveData()}>
-                    <img className="paper" alt='imágen de un avatar' src={paper} />
-                    </button>
+              <form className='sendText' onSubmit={handleSubmitInput}>
+                <input className='inputSend' type='text' onChange={e => setMessage(e.target.value)} value={message} />
 
-                  </div>
-               
+
+                <div className='boxpaper'>
+
+                  {/* <input type='submit' /> */}
+                  <button className='buttonSend' type='submit'>
+                  <img className="paper" alt='imágen de un avatar' src={paper} /> 
+                  </button>
+                  {/* <img className="paper" alt='imágen de un avatar' src={paper} /> */}
+
+
+                </div>
+
+              </form>
+
+
 
 
             </div>
