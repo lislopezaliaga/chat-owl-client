@@ -31,7 +31,7 @@ export const Home = () => {
       console.log(message)
       setMessages([...messages,{
         body:message.body,
-        from:message.from
+        from:message.from,
       }])
     }
     socket.on('message', receiveMessage)
