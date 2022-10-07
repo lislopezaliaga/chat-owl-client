@@ -6,6 +6,7 @@ import paper from '../images/paper.png';
 import chanel from '../images/chanel.png';
 import { useForm } from 'react-hook-form';
 import io from "socket.io-client";
+import axios from 'axios';
 
 const socket = io('http://localhost:4000');
 export const Home = () => {
@@ -64,9 +65,22 @@ export const Home = () => {
   //             onChange={(event) => setInputValue(event.target.value)}>
   //          </input>;
   // }
+  const getProfile= async() =>{
+    
+    const res =  await axios.get('http://localhost:4000/users', {
+      headers: {
+        Authorization: 'Bearer ' + document.cookie //the token is a variable which holds the token
+      }
+     })
+    
+    console.log(res);
+  }
 
   return (
     <div className='generalContainerHome'>
+      <div><h3>PRUEBA</h3>
+        <button onClick={() =>getProfile()}>PRESIÓNAME</button>
+      </div>
       <div className='nav'>
         <div className='boxBuhoLogo'>
           <img className="buhoLogo" alt='imágen de un buho con un avión' src={buhoLogo} />
