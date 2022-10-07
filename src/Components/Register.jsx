@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 export const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-
+const navigate=useNavigate();
   // const [user,setUser]=useState({
   //   user:""
   // })
@@ -25,6 +25,7 @@ export const Register = () => {
     });
     const data = await res.json();
     console.log(data);
+    navigate('/login')
   }
   return (
     <div className="generalContainer">

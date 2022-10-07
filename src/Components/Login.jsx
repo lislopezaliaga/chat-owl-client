@@ -11,7 +11,7 @@ export const Login = () => {
 
   const onSubmit = ( data ) => {
   
-    navigate("register");
+    navigate('/home');
     console.log( data ) ;
     if(data){
 
