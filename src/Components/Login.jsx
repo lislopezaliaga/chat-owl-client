@@ -20,10 +20,11 @@ export const Login = () => {
     // });
     // const data = await res.json();
     console.log(res);
-    console.log();
+    console.log(document.cookie);
     // navigate('/home')
    
     }
+    
   return (
     <div className="generalContainer">
 
