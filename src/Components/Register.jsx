@@ -8,19 +8,19 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
-const navigate=useNavigate();
   // const [user,setUser]=useState({
   //   user:""
   // })
   // const handleChange=(e)=>{
   //   console.log(e.target.name, e.target.value)
   // }
-  const onSubmit = async (r) => {
-    console.log(r);
-    const res = await fetch('http://localhost:4000/messages', {
+  const onSubmit = async (datUser) => {
+    console.log(datUser);
+    const res = await fetch('http://localhost:4000/auth/signUp', {
       method: "POST",
-      body: JSON.stringify(r),
+      body: JSON.stringify(datUser),
       headers: { "Content-Type": "application/json" },
     });
     const data = await res.json();
@@ -38,11 +38,11 @@ const navigate=useNavigate();
         <img className="imgLogo" alt='buho' src={logo} />
         <h1>ChatOwl</h1>
         <form className="boxForm" onSubmit={handleSubmit(onSubmit)}>
-          <input className="input" type="text" placeholder="Nombre" {...register('textMessage', { required: true })} />
+          <input className="input" type="text" placeholder="Nombre" {...register('nameUser', { required: true })} />
           {errors.name?.type === 'required' && <label>'Este campo es requerido'</label>}
-          <input className="input" type="email" placeholder="Correo" {...register('email', { required: true })} />
+          <input className="input" type="email" placeholder="Correo" {...register('emailUser', { required: true })} />
           {errors.email?.type === 'required' && <label>'Este campo es requerido'</label>}
-          <input className="input" type="password" placeholder="Contraseña"{...register('password', { required: true })} />
+          <input className="input" type="password" placeholder="Contraseña"{...register('passwordUser', { required: true })} />
           {errors.password?.type === 'required' && <label>'Este campo es requerido'</label>}
           <input className="button" type="submit" value="Registrarse" />
         </form>

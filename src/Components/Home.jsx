@@ -6,7 +6,7 @@ import paper from '../images/paper.png';
 import chanel from '../images/chanel.png';
 import { useForm } from 'react-hook-form';
 import io from "socket.io-client";
-
+import axios from 'axios';
 const socket = io('http://localhost:4000');
 export const Home = () => {
   const { register, handleSubmit } = useForm();
@@ -31,14 +31,20 @@ export const Home = () => {
       console.log(message)
       setMessages([...messages,{
         body:message.body,
-        from:message.from
+        from:message.from,
       }])
     }
     socket.on('message', receiveMessage)
     return () => {
       socket.off('message', receiveMessage)
     }
-  }, [messages])
+  }, [messages]);
+
+  const getProfile= async()=>{
+
+    const response=await axios.get('http://localhost:4000/users');
+    console.log(response);
+  }
   // socket.on('chat message', function(msg) {
   //   // const item = document.createElement('li');
   //   // item.textContent = msg;
@@ -89,6 +95,7 @@ export const Home = () => {
               {/* {errors.nameChanel?.type === 'required' && <label>'Este campo es requerido'</label>} */}
               <input className='buttonChanel' type='submit' value='crear' />
             </form>
+            <button onClick={()=> getProfile()}>generar</button>
 
           </div>
           <div className='boxChanel'>
