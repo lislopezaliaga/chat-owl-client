@@ -4,12 +4,18 @@ import exit from '../images/exit.png';
 import user from '../images/user.png';
 import paper from '../images/paper.png';
 import chanel from '../images/chanel.png';
-import { useForm } from 'react-hook-form';
+import { get, useForm } from 'react-hook-form';
 import io from "socket.io-client";
 import axios from 'axios';
 const socket = io('http://localhost:4000');
+
 export const Home = () => {
   const { register, handleSubmit } = useForm();
+
+  const [usersData, setUser] = useState({
+    email: "",
+    name: ""
+    });
 
   const [message, setMessage] = useState('');
 
@@ -28,7 +34,7 @@ export const Home = () => {
   }
   useEffect(() => {
     const receiveMessage = message => {
-      console.log(message)
+      // console.log(message)
       setMessages([...messages,{
         body:message.body,
         from:message.from,
@@ -40,11 +46,11 @@ export const Home = () => {
     }
   }, [messages]);
 
-  const getProfile= async()=>{
+  // const getProfile= async()=>{
 
-    const response=await axios.get('http://localhost:4000/users');
-    console.log(response);
-  }
+  //   const response=await axios.get('http://localhost:4000/users');
+  //   console.log(response);
+  // }
   // socket.on('chat message', function(msg) {
   //   // const item = document.createElement('li');
   //   // item.textContent = msg;
@@ -70,9 +76,35 @@ export const Home = () => {
   //             onChange={(event) => setInputValue(event.target.value)}>
   //          </input>;
   // }
+  const getProfile= async() =>{
+    
+    // const res =  await axios.get('http://localhost:4000/users', {
+    //   headers: {
+    //     Authorization:document.cookie.substring(11) //the token is a variable which holds the token
+    //   }
+    //  })
+    // // console.log(document.cookie.substring(11));
+    // // console.log(res);
+    // setUser(res.data)
+  }
+  getProfile();
+  const logout = async() =>{
+    
+    const res =  await axios.get('http://localhost:4000/users', {
+      headers: {
+        Authorization:document.cookie.substring(11) //the token is a variable which holds the token
+      }
+     })
+    // console.log(document.cookie.substring(11));
+    // console.log(res);
+    setUser(res.data)
+  }
 
   return (
     <div className='generalContainerHome'>
+      <div><h3>PRUEBA</h3>
+        <button onClick={() =>getProfile()}>PRESIÓNAME</button>
+      </div>
       <div className='nav'>
         <div className='boxBuhoLogo'>
           <img className="buhoLogo" alt='imágen de un buho con un avión' src={buhoLogo} />
@@ -80,9 +112,9 @@ export const Home = () => {
         <div className='boxMenu'>
           <div className='boxUser'>
             <img className="avatar" alt='imágen de un avatar' src={user} />
-            <p className='nameUser'>Lis</p>
+            <p className='nameUser'>{usersData.name}</p>
           </div>
-          <img className="cerrarSesion" alt='imágen de cerrarSesion' src={exit} />
+          <img className="cerrarSesion" onClick={logout} alt='imágen de cerrarSesion' src={exit} />
         </div>
       </div>
 
