@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import buhoLogo from '../images/buhoLogo.png';
 import exit from '../images/exit.png';
-import user from '../images/user.png';
+import userAvatarn from '../images/user.png';
 import paper from '../images/paper.png';
 import chanelImg from '../images/chanel.png';
 import { get, useForm } from 'react-hook-form';
@@ -15,7 +15,7 @@ export const Home = () => {
 
   const userData = JSON.parse(localStorage.getItem('USER'));
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
@@ -73,7 +73,7 @@ export const Home = () => {
       setLoadingUsers(true);
       try {
         const { data: response } = await axios.get('http://localhost:4000/allUsers');
-        console.log(response);
+        // console.log(response);
         setUsers(response);
       } catch (error) {
         console.error(error.message);
@@ -91,7 +91,8 @@ export const Home = () => {
       idDueño: userData.id
     }
     const res = await axios.post('http://localhost:4000/chanel', objUser)
-    console.log(res);
+    console.log(datUser);
+    reset();
   }
 
 
@@ -110,8 +111,9 @@ export const Home = () => {
         </div>
         <div className='boxMenu'>
           <div className='boxUser'>
-            <img className="avatar" alt='imágen de un avatar' src={user} />
             <p className='nameUser'>{userData.name}</p>
+            <img className="avatar" alt='imágen de un avatar' src={userAvatarn} />
+            
           </div>
           <img className="cerrarSesion" alt='imágen de cerrarSesion' src={exit} />
         </div>
@@ -175,19 +177,23 @@ export const Home = () => {
         </div>
         <div className='boxBodyHome'>
           <h2>Conectados</h2>
-        
-            <div className='userContent'>
-              {users.map((user, index) =>
-              <div>
-                <div  key={index} className='imgAvatar'>
-                  <img className="avatarUser" alt='imágen de un avatar' src={user} />
+
+          <div className='userContent'>
+            {users.map((user, index) =>
+              <div key={index} className='userboxContent'>
+                <div  className='imgAvatar'>
+                  <img className="avatarUser" alt='imágen de un avatar' src={userAvatarn} />
                 </div>
-                <p>{user.name_user}</p>
-                <div className='status'></div>
+                
+                <p className='nameuserconect'>{user.name_user}</p>
+                <div className='divstatus'>
+                  <div className='status'></div>
                 </div>
-                )}                
-            </div>
-        
+                
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
 
