@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import logo from '../images/logo.png';
 import buhoAvion from '../images/buhoAvion.png';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 
-
-
 export const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  // const [user,setUser]=useState({
-  //   user:""
-  // })
-  // const handleChange=(e)=>{
-  //   console.log(e.target.name, e.target.value)
-  // }
   const onSubmit = async (datUser) => {
     console.log(datUser);
     const res = await fetch('http://localhost:4000/auth/signUp', {

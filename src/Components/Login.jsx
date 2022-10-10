@@ -5,24 +5,31 @@ import {useForm} from 'react-hook-form';
 import { Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
 
+export let datosUser = {};
+
 export const Login = () => {
-  const { register , handleSubmit,formState:{errors} } = useForm ( ) ;
+  const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate = useNavigate();
 
   const onSubmit = async( datUser ) => {
     
     const res =  await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
-    
-    // const res = await fetch('http://localhost:4000/auth/logIn', {
-    //   method: "POST",
-    //   body: JSON.stringify(datUser),
-    //   headers: { "Content-Type": "application/json" },
-    // });
-    // const data = await res.json();
-    console.log(res);
-    console.log(document.cookie);
-    navigate('/home')
-   
+      console.log(document.cookie);
+
+    if(res){
+       
+      const respuesta =  await axios.get('http://localhost:4000/users', {
+        headers: {
+          Authorization:document.cookie.substring(11) //the token is a variable which holds the token
+        }
+      })
+      datosUser = respuesta.data;
+      // guardando datos en el local S
+      localStorage.setItem('USER', JSON.stringify(datosUser));
+      navigate('/home');   
+
+    }
+
     }
     
   return (
