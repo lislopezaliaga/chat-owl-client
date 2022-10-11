@@ -14,10 +14,10 @@ export const Login = () => {
   const onSubmit = async( datUser ) => {
     
     const res =  await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
-      console.log(document.cookie);
+      // console.log(document.cookie);
+      console.log(res);
 
-    if(res){
-       
+    if(res){       
       const respuesta =  await axios.get('http://localhost:4000/users', {
         headers: {
           Authorization:document.cookie.substring(11) //the token is a variable which holds the token
