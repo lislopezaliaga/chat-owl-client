@@ -4,10 +4,12 @@ import buhoAvion from '../images/buhoAvion.png';
 import {useForm} from 'react-hook-form';
 import { Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
+import io from "socket.io-client";
 
-export let datosUser = {};
+
 
 export const Login = () => {
+ 
   const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate = useNavigate();
 
@@ -15,7 +17,7 @@ export const Login = () => {
     
     const res =  await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
       console.log(document.cookie);
-
+console.log(res);
     if(res){
        
       const respuesta =  await axios.get('http://localhost:4000/users', {
@@ -23,10 +25,17 @@ export const Login = () => {
           Authorization:document.cookie.substring(11) //the token is a variable which holds the token
         }
       })
-      datosUser = respuesta.data;
-      // guardando datos en el local S
-      localStorage.setItem('USER', JSON.stringify(datosUser));
-      navigate('/home');   
+      console.log(respuesta);
+     if(respuesta.statusText==='OK'){
+      sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
+
+      // const socket = io('http://localhost:4000');
+      // socket.emit('chatmessage', datosUser.name);
+     
+      navigate('/home');  
+     }
+   
+      
 
     }
 
