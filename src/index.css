@@ -108,8 +108,7 @@ p {
 
 .nav {
   display: flex;
-  background-color: #77ADDE;
-  ;
+  background-color: #2F4152;
   width: 100%;
   height: 8vh;
   padding: .2em 0;
@@ -119,8 +118,11 @@ p {
   display: flex;
   justify-content: flex-start;
   width: 80%;
+  align-items: center;
 }
-
+.buhoLogo{
+  width: 70px;
+}
 .boxMenu {
   display: flex;
   justify-content: flex-end;
@@ -135,24 +137,31 @@ p {
   justify-content: right;
   text-align: center;
   align-items: center;
-  
+  margin-right: 5%;
+
 }
 
 .avatar {
   width: 50px;
 }
+
 .nameUser {
   padding: 0;
 
-  color: #2f4152;
+  color: white;
   font-family: 'Lato';
   font-size: 14px;
 }
+.titleChat{
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 1px 5px 4px rgb(255 255 255 / 20%);
 
+}
 .generalBoxBodyHome {
   display: flex;
 
-  height: 98vh;
+  height: 85vh;
 }
 
 .boxBodyHome {
@@ -162,7 +171,6 @@ p {
   box-shadow: 9px 0px 4px rgb(0 0 0 / 25%);
   background-blend-mode: luminosity;
   align-items: center;
-  height: 91vh;
   z-index: 1;
 }
 
@@ -172,7 +180,6 @@ p {
   width: 40%;
   background-color: #DEE8F1;
   align-items: center;
-  height: 91vh;
   position: relative;
   box-shadow: inset -9px 0px 4px rgb(0 0 0 / 25%);
 
@@ -180,8 +187,8 @@ p {
 }
 
 .cerrarSesion {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-right: 8%;
 }
 
@@ -198,6 +205,7 @@ h2 {
   border-radius: 9px;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .nameChanel {
@@ -215,20 +223,28 @@ h2 {
   justify-content: center;
   text-align: center;
   /* border-radius: 9px; */
-  background-color: #2F4152;
+  background-color: #77ADDE;
 
 }
 
 .createChanel {
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.formChanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inputChanel {
   border-radius: 8px;
   border: 0.5px solid black;
-  font-size: 25px;
+  font-size: 20px;
   width: 70%;
+  height: 30px;
   margin: 0 2%;
 }
 
@@ -237,7 +253,11 @@ h2 {
   border-radius: 8px;
   height: 30px;
   background-color: #116CDD;
-  border: 0.3px solid;
+ font-size: 18px;
+  border: none;
+    color: white;
+    box-shadow: -2px 6px 4px rgb(0 0 0 / 25%);
+
 
 }
 
@@ -252,7 +272,7 @@ h2 {
   display: flex;
   width: 100%;
   position: absolute;
-  bottom: 3%;
+  bottom: 1.5%;
   left: 0;
 
   align-items: center;
@@ -318,6 +338,10 @@ h2 {
   width: 90%;
   display: flex;
   flex-direction: column;
+
+  max-height: 68vh;
+  overflow-y: auto;
+
 }
 
 .textMessage {
@@ -331,7 +355,8 @@ h2 {
 .avatarUser {
   width: 35px;
 }
-.divstatus{
+
+.divstatus {
   width: 10%;
   display: flex;
   align-items: center;
@@ -343,16 +368,19 @@ h2 {
   border-radius: 50%;
   background-color: greenyellow;
 }
-.imgAvatar{
+
+.imgAvatar {
   width: 10%;
 }
-.buttonSend{
+
+.buttonSend {
   border: none;
   background-color: #116CDD;
   height: 30px;
-  
+
 }
-.userboxContent{
+
+.userboxContent {
   display: flex;
 
   align-items: center;
@@ -366,8 +394,19 @@ h2 {
   font-size: 25px;
   margin: 2% 0;
 }
-.nameuserconect{
+
+.nameuserconect {
   width: 80%;
+}
+
+.errorChanel {
+  color: red;
+  font-size: 15px;
+  width: 90%;
+}
+.footer{
+  background-color: #2F4152;
+  height: 5vh;
 }
 @media only screen and (max-width: 900px) {
 
