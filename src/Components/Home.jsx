@@ -6,8 +6,6 @@ import { Chanel } from './Chanel';
 import { Chats } from './Chats';
 import { Users } from './Users';
 
-
-
 export const Home = () => {
 
   const [chanelUnique, setChanelUnique] = useState([]);
@@ -36,7 +34,7 @@ export const Home = () => {
 
       <div className='generalBoxBodyHome'>
        <Chanel  setChanelUnique={setChanelUnique}></Chanel>
-       <Chats chanelUnique={chanelUnique}></Chats>
+       <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
        <Users></Users>
       </div>
       <div className='footer'>
