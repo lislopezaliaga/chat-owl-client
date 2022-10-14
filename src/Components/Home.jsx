@@ -10,6 +10,9 @@ import { Users } from './Users';
 
 export const Home = () => {
 
+  const [chanelUnique, setChanelUnique] = useState([]);
+
+
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
   const dataUser = sessionUser;
@@ -32,8 +35,8 @@ export const Home = () => {
       </div>
 
       <div className='generalBoxBodyHome'>
-       <Chanel></Chanel>
-       <Chats></Chats>
+       <Chanel  setChanelUnique={setChanelUnique}></Chanel>
+       <Chats chanelUnique={chanelUnique}></Chats>
        <Users></Users>
       </div>
       <div className='footer'>

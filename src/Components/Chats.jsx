@@ -3,7 +3,7 @@ import { socket } from './conection';
 import paper from '../images/paper.png';
 import InputEmoji from "react-input-emoji";
 
-export const Chats = () => {
+export const Chats = ({chanelUnique}) => {
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
    const dataUser = sessionUser;
@@ -44,15 +44,15 @@ export const Chats = () => {
 
    function handleOnEnter(text) {
       console.log("enter", text);
-    }
+   }
+   console.log(chanelUnique);
    return (
       <div className='boxMessage'>
          <div className='nameChanelHome'>
             <h2 id='chatNames'>#Kittychat</h2>
          </div>
          <div className='messageContainer'>
-
-            {messages.map((message, index) => (
+         {messages.map((message, index) => (
                <div key={index} className='messageContent'>
                   <label className='nameMessage'>{message.from}</label>
                   <div className='message'>
@@ -60,6 +60,21 @@ export const Chats = () => {
                   </div>
                </div>
             ))}
+
+
+            {/* {messages.map((message, index) => (
+               <li
+                  key={index}
+                  className={`${message.from === "me" ? "messageContentRigth" : "messageContentLeft"}`}
+
+               >
+                  <label className='nameMessage'>{message.from}</label>
+                     <label className={`${message.from === "me" ? "messageMe" : "messageOther"}`}>
+                        {message.body}
+                     </label>
+                
+               </li>
+            ))} */}
 
             <div className='sendText'>
                <form className='sendText' onSubmit={handleSubmitInput}>

@@ -1,3 +1,9 @@
+/* @tailwind base;
+
+@tailwind components;
+
+@tailwind utilities; */
+
 body {
   padding: 0;
   margin: 0;
@@ -292,13 +298,18 @@ h2 {
   margin: 0 3%
 }
 
-.messageContent {
+/* .messageContentRigth {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+.messageContentLeft{
+  background-color: #77ADDE;
   display: flex;
   flex-direction: column;
   width: 100%;
-
-
-}
+} */
 
 .message {
   display: flex;
@@ -408,6 +419,22 @@ h2 {
   background-color: #2F4152;
   height: 5vh;
 }
+/* .messageMe{
+  background-color: aqua;
+  border: 1px solid #116CDD;
+  border-radius: 20px;
+  padding: 2%;
+ 
+
+}
+.messageOther{
+  background-color: #77ADDE;
+  border: 1px solid #116CDD;
+  border-radius: 20px;
+  padding: 2%;
+  margin: 1%;
+
+} */
 @media only screen and (max-width: 900px) {
 
   .input,

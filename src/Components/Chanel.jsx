@@ -6,7 +6,11 @@ import { socket } from './conection';
 
 
 
-export const Chanel = () => {
+export const Chanel = ({setChanelUnique}) => {
+
+   // const setChanelUnique = props.setChanelUnique
+
+   // const { setChanelUnique } = props
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -21,6 +25,7 @@ export const Chanel = () => {
 
    const [nameChanelGn, setNameChanelsGn] = useState([]);
 
+   // const [chanelUnique, setChanelUnique] = useState([]);
 
 
 
@@ -31,24 +36,22 @@ export const Chanel = () => {
          idDueño: sessionUser.id
       }
 
-    axios.post('http://localhost:4000/chanel', chanelUser).then((res)=>{
-      // console.log(res);
-      socket.emit('nameChanel', res);
-      setNameChanels([...nameChanel, chanelUser]);
-      reset();
-    }).catch((error)=>{
-      errorChanels(error.response.data.message);
-      setTimeout(()=>{
-         errorChanels('');
-      },2000)
- 
-      console.log(error.response.data.message);
+      axios.post('http://localhost:4000/chanel', chanelUser).then((res) => {
+         // console.log(res);
+         socket.emit('nameChanel', res);
+         setNameChanels([...nameChanel, chanelUser]);
+         reset();
+      }).catch((error) => {
+         errorChanels(error.response.data.message);
+         setTimeout(() => {
+            errorChanels('');
+         }, 2000)
 
-    });
+         console.log(error.response.data.message);
 
-      // console.log(res);
-   
-   
+      });
+
+
    }
 
    useEffect(() => {
@@ -84,42 +87,36 @@ export const Chanel = () => {
       setNameChanelsGn([...nameChanelBd, ...nameChanel])
    }, [nameChanelBd, nameChanel])
 
-   // console.log('BDDDD', nameChanelBd);
-   // console.log('SOCKET', nameChanel);
-   // console.log('General', nameChanelGn);
-  
+   const changeChanel = (name) => {
+      setChanelUnique(nameChanelGn.filter((e)=>e.namechanel===name))
+   }
 
-  
- 
-//   console.log(chosenEmoji.emoji);
    return (
 
-      <div className='boxBodyHome'>
+      <div className='boxBodyHome' >
          <h2>Canales</h2>
          <div className='createChanel'>
-         
-   
 
             <form className='formChanel' onSubmit={handleSubmit(onSubmitChanel)}>
                <input className='inputChanel' type='text' {...register('namechanel', { required: true })} />
-               
+
                {/* {errors.nameChanel?.type === 'required' && <label>'Este campo es requerido'</label>} */}
                <input className='buttonChanel' type='submit' value='Crear' />
-             
+
             </form>
-          
-            <label className='errorChanel'>{ errorChanel}</label>
+
+            <label className='errorChanel'>{errorChanel}</label>
          </div>
          <div className='boxChanel'>
             {nameChanelGn.map((chanel, index) => (
-               <div key={index} className='nameChanel' >
+               <div key={index} className='nameChanel' onClick={(e) => changeChanel(chanel.namechanel)}>
                   <img className="avatar" alt='imágen de un avatar' src={chanelImg} />
                   <p className='nameChanelP'>{chanel.namechanel}</p>
                </div>
             ))}
 
          </div>
-       
+
       </div>
 
    )
