@@ -58,6 +58,8 @@ export const Chanel = ({setChanelUnique}) => {
       axios.get('http://localhost:4000/chanel').then((response) => {
 
          setNameChanelsBd(response.data);
+         setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))
+    
 
       })
          .catch(error => {
@@ -66,11 +68,8 @@ export const Chanel = ({setChanelUnique}) => {
 
    }, []);
 
-
    const receiveChanel = useCallback((chanelSocket) => {
-
       setNameChanels((prevState) => [...prevState, chanelSocket]);
-
    }, [setNameChanels])
 
 
@@ -84,8 +83,10 @@ export const Chanel = ({setChanelUnique}) => {
    }, [receiveChanel]);
 
    useEffect(() => {
-      setNameChanelsGn([...nameChanelBd, ...nameChanel])
+      setNameChanelsGn([...nameChanelBd, ...nameChanel])  
+
    }, [nameChanelBd, nameChanel])
+
 
    const changeChanel = (name) => {
       setChanelUnique(nameChanelGn.filter((e)=>e.namechanel===name))

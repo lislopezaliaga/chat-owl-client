@@ -2,8 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { socket } from './conection';
 import paper from '../images/paper.png';
 import InputEmoji from "react-input-emoji";
+import axios from 'axios';
 
-export const Chats = ({chanelUnique}) => {
+
+export const Chats = ({chanelUnique, setChanelUnique}) => {
+   
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
    const dataUser = sessionUser;
@@ -13,25 +16,107 @@ export const Chats = ({chanelUnique}) => {
    const [message, setMessage] = useState('');
    const [messages, setMessages] = useState([]);
 
-   const handleSubmitInput = (e) => {
-      e.preventDefault();
-      socket.emit('chatmessage', { message: message, user: dataUser.name });
-      const newMessage = {
-         body: message,
-         from: "me"
+   
+   const [messagesBd, setmessagesBd] = useState([]);
+   const [messagesBdGrl, setMessagesBdGrl] = useState([]);
+
+   const [messagesChatGnrl, setMessagesChatGnrl] = useState([]);
+
+   
+   useEffect(() =>{
+      axios.get('http://localhost:4000/channelGrl')
+      .then((response) => {
+
+         setMessagesChatGnrl(response.data);        
+
+      })
+         .catch(error => {
+            console.error(error.message);
+         })
+      
+     
+   },[])
+
+
+   // console.log('messagesBd',  messagesChatGnrl[0].id_channel);
+   // console.log('unique id', chanelUnique[0].id_channel);
+   // console.log('chanelUnique', chanelUnique);
+
+
+   useEffect(() => {
+
+     if(chanelUnique.length===0){
+      axios.post('http://localhost:4000/general/messages',{ idChannel: 6})
+      .then((response) => {
+         setmessagesBd(response.data); 
+      })
+         .catch(error => {
+            console.error(error.message);
+       }) 
+     }else{
+      axios.post('http://localhost:4000/general/messages',{ idChannel: chanelUnique[0].id_channel})
+      .then((response) => {
+         setmessagesBd(response.data); 
+      })
+         .catch(error => {
+            console.error(error.message);
+       }) 
+     }
+        
+}, [ chanelUnique]);
+
+console.log('messagesBd', messagesBd);
+   const handleSubmitInput = (e) => {       
+
+      const objMessage =  {
+         textMessage: message, 
+         idUser: dataUser.id, 
+         dateTime:new Date(), 
+         idChannel: chanelUnique[0].id_channel,
+         nameUser: dataUser.name 
       }
-      setMessages([...messages, newMessage])
-      setMessage('');
+
+      e.preventDefault();
+      axios.post('http://localhost:4000/messages', objMessage)
+      .then(() =>{
+         socket.emit('chatmessage', objMessage);
+         const newMessage = {
+            textMessage: message, 
+            idUser: dataUser.id, 
+            dateTime:new Date(), 
+            idChannel: chanelUnique[0].id_channel,
+            nameUser: "me"            
+         }
+         setMessages([...messages, newMessage])
+         setMessage('');
+         })
+      .catch((error) => {     
+
+         console.log(error, 'error');
+
+      });
+     
    }
+
 
    const receiveMessage = useCallback((message) => {
 
-      setMessages((prevState) => [...prevState, {
-         body: message.body,
-         from: message.from,
-      }])
+      setMessages((prevState) => [...prevState, message])
    }, [setMessages])
 
+
+   
+   // useEffect(() => {
+   //    axios.post('http://localhost:4000/get/messages',{ idChannel: chanelUnique[0].id_channel })
+   //   .then((response) => {
+   //      setmessagesBd(response.data); 
+   //      console.log('response', response); 
+   //   })
+   //      .catch(error => {
+   //         console.error(error.message);
+   //      })  
+  
+   //   }, []);
 
    useEffect(() => {
       socket.on('message', receiveMessage)
@@ -42,21 +127,36 @@ export const Chats = ({chanelUnique}) => {
       }
    }, [receiveMessage]);
 
-   function handleOnEnter(text) {
-      console.log("enter", text);
-   }
-   console.log(chanelUnique);
+   useEffect(() => {
+      setMessagesBdGrl([...messagesBd, ...messages])  
+
+   }, [messagesBd, messages])
+
+  
+
    return (
       <div className='boxMessage'>
-         <div className='nameChanelHome'>
-            <h2 id='chatNames'>#Kittychat</h2>
+          {chanelUnique.length ===0 ?
+          
+          messagesChatGnrl.map((channel, index) => (
+         <div key={index}  className='nameChanelHome'>
+            <h2 id='chatNames'>{channel.namechanel}</h2>
          </div>
+           ))          
+          : 
+          
+          chanelUnique.map((channel, index) => (
+         <div key={index}  className='nameChanelHome'>
+            <h2 id='chatNames'>{channel.namechanel}</h2>
+         </div>
+           ))}
+
          <div className='messageContainer'>
-         {messages.map((message, index) => (
+         {messagesBd.map((message, index) => (
                <div key={index} className='messageContent'>
-                  <label className='nameMessage'>{message.from}</label>
+                  <label className='nameMessage'>{message.name_user}</label>
                   <div className='message'>
-                     <p className='textMessage'>{message.body}</p>
+                     <p className='textMessage'>{message.text_message}</p>
                   </div>
                </div>
             ))}
