@@ -38,7 +38,7 @@ export const Chanel = ({setChanelUnique}) => {
 
       axios.post('http://localhost:4000/chanel', chanelUser).then((res) => {
          // console.log(res);
-         socket.emit('nameChanel', res);
+         socket.emit('nameChanel', chanelUser);
          setNameChanels([...nameChanel, chanelUser]);
          reset();
       }).catch((error) => {
@@ -47,7 +47,6 @@ export const Chanel = ({setChanelUnique}) => {
             errorChanels('');
          }, 2000)
 
-         console.log(error.response.data.message);
 
       });
 
@@ -90,6 +89,10 @@ export const Chanel = ({setChanelUnique}) => {
 
    const changeChanel = (name) => {
       setChanelUnique(nameChanelGn.filter((e)=>e.namechanel===name))
+      // return () => {
+      //    socket.off('chatmessage')
+      //    console.log('cerrando socket');
+      // }
    }
 
    return (
