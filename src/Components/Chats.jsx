@@ -46,7 +46,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
    useEffect(() => {
 
      if(chanelUnique.length===0){
-      axios.post('http://localhost:4000/general/messages',{ idChannel: 6})
+      axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
       .then((response) => {
          setmessagesBd(response.data); 
       })
