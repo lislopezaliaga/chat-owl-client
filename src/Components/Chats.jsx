@@ -15,6 +15,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
    const [message, setMessage] = useState('');
    const [messages, setMessages] = useState([]);
+   const [messagesFilter, setMessageFilter] = useState([]);
 
    
    const [messagesBd, setmessagesBd] = useState([]);
@@ -37,32 +38,32 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
      
    },[])
 
-   useEffect(() => {
+//    useEffect(() => {
 
-     if(chanelUnique.length===0){
-      axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
-      .then((response) => {
-         setmessagesBd(response.data); 
-      })
-         .catch(error => {
-            console.error(error.message);
-       }) 
-     }else {
+//      if(chanelUnique.length===0){
+//       axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
+//       .then((response) => {
+//          setmessagesBd(response.data); 
+//       })
+//          .catch(error => {
+//             console.error(error.message);
+//        }) 
+//      }else {
      
-      const a=chanelUnique[0].id_channel
-      axios.post('http://localhost:4000/general/messages',{ idChannel: a})
-      .then((response) => {
-         setmessagesBd(response.data); 
+//       const a=chanelUnique[0].id_channel
+//       axios.post('http://localhost:4000/general/messages',{ idChannel: a})
+//       .then((response) => {
+//          setmessagesBd(response.data); 
 
-      })
-         .catch(error => {
-            // setmessagesBd([]); 
-            console.error(error.message);
+//       })
+//          .catch(error => {
+//             // setmessagesBd([]); 
+//             console.error(error.message);
             
-       }) 
-     }
+//        }) 
+//      }
         
-}, [ chanelUnique]);
+// }, [ chanelUnique]);
 
    const handleSubmitInput = (e) => {       
      
@@ -99,10 +100,10 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
 
    const receiveMessage = useCallback((message) => {
-         if(message.idChannel===chanelUnique[0].id_channel){
+         // if(message.idChannel===chanelUnique[0].id_channel){
             setMessages((prevState) => [...prevState, message])
-            console.log('golass',message.idChannel,chanelUnique[0].id_channel);
-         }
+            // console.log('golass',message.idChannel,chanelUnique[0].id_channel);
+         // }
     
    }, [setMessages])
 
@@ -132,6 +133,15 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
    }, [messagesBd, messages])
 
+
+   useEffect(() =>{
+   const messagefil=messages.filter((e)=> e.idChannel===12)
+      setMessageFilter(messagefil)
+     
+   },[chanelUnique,messages])
+
+// console.log(messages[0].idChannel);
+console.log('golsss',messagesFilter);
    return (
       <div className='boxMessage'>
           {chanelUnique.length ===0 ?
@@ -150,7 +160,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
            ))}
 
          <div className='messageContainer'>
-         {messagesBdGrl.map((message, index) => (
+         {messages.map((message, index) => (
                <div key={index} className='messageContent'>
                   <label className='nameMessage'>{message.nameuser}</label>
                   <div className='message'>
