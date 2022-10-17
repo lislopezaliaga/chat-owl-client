@@ -135,12 +135,16 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
 
    useEffect(() =>{
-   const messagefil=messages.filter((e)=> e.idChannel===12)
+   const messagefil=messages.filter((e)=> e.idChannel===chanelUnique[0].id_channel)
       setMessageFilter(messagefil)
+
      
    },[chanelUnique,messages])
+   
+   
 
-// console.log(messages[0].idChannel);
+
+console.log('chanel unique',chanelUnique);
 console.log('golsss',messagesFilter);
    return (
       <div className='boxMessage'>
