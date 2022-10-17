@@ -3,7 +3,7 @@ import { socket } from './conection';
 import paper from '../images/paper.png';
 import InputEmoji from "react-input-emoji";
 import axios from 'axios';
-
+import { Emoji, EmojiStyle } from 'emoji-picker-react';
 
 export const Chats = ({chanelUnique, setChanelUnique}) => {
    
@@ -15,6 +15,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
    const [message, setMessage] = useState('');
    const [messages, setMessages] = useState([]);
+   const [messagesFilter, setMessageFilter] = useState([]);
 
    
    const [messagesBd, setmessagesBd] = useState([]);
@@ -37,43 +38,41 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
      
    },[])
 
+//    useEffect(() => {
 
-   // console.log('messagesBd',  messagesChatGnrl[0].id_channel);
-   // console.log('unique id', chanelUnique[0].id_channel);
-   // console.log('chanelUnique', chanelUnique);
+//      if(chanelUnique.length===0){
+//       axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
+//       .then((response) => {
+//          setmessagesBd(response.data); 
+//       })
+//          .catch(error => {
+//             console.error(error.message);
+//        }) 
+//      }else {
+     
+//       const a=chanelUnique[0].id_channel
+//       axios.post('http://localhost:4000/general/messages',{ idChannel: a})
+//       .then((response) => {
+//          setmessagesBd(response.data); 
 
-
-   useEffect(() => {
-
-     if(chanelUnique.length===0){
-      axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
-      .then((response) => {
-         setmessagesBd(response.data); 
-      })
-         .catch(error => {
-            console.error(error.message);
-       }) 
-     }else{
-      axios.post('http://localhost:4000/general/messages',{ idChannel: chanelUnique[0].id_channel})
-      .then((response) => {
-         setmessagesBd(response.data); 
-      })
-         .catch(error => {
-            console.error(error.message);
-       }) 
-     }
+//       })
+//          .catch(error => {
+//             // setmessagesBd([]); 
+//             console.error(error.message);
+            
+//        }) 
+//      }
         
-}, [ chanelUnique]);
+// }, [ chanelUnique]);
 
-console.log('messagesBd', messagesBd);
    const handleSubmitInput = (e) => {       
-
+     
       const objMessage =  {
-         textMessage: message, 
+         textmessage: message, 
          idUser: dataUser.id, 
          dateTime:new Date(), 
          idChannel: chanelUnique[0].id_channel,
-         nameUser: dataUser.name 
+         nameuser: dataUser.name 
       }
 
       e.preventDefault();
@@ -81,17 +80,18 @@ console.log('messagesBd', messagesBd);
       .then(() =>{
          socket.emit('chatmessage', objMessage);
          const newMessage = {
-            textMessage: message, 
+            textmessage: message, 
             idUser: dataUser.id, 
             dateTime:new Date(), 
             idChannel: chanelUnique[0].id_channel,
-            nameUser: "me"            
+            nameuser: "me"            
          }
          setMessages([...messages, newMessage])
          setMessage('');
          })
       .catch((error) => {     
-
+     
+      console.log('inicia la conversación')
          console.log(error, 'error');
 
       });
@@ -100,12 +100,13 @@ console.log('messagesBd', messagesBd);
 
 
    const receiveMessage = useCallback((message) => {
-
-      setMessages((prevState) => [...prevState, message])
+         // if(message.idChannel===chanelUnique[0].id_channel){
+            setMessages((prevState) => [...prevState, message])
+            // console.log('golass',message.idChannel,chanelUnique[0].id_channel);
+         // }
+    
    }, [setMessages])
 
-
-   
    // useEffect(() => {
    //    axios.post('http://localhost:4000/get/messages',{ idChannel: chanelUnique[0].id_channel })
    //   .then((response) => {
@@ -117,7 +118,7 @@ console.log('messagesBd', messagesBd);
    //      })  
   
    //   }, []);
-
+   // console.log('golass',message.idChannel,chanelUnique[0].id_channel)
    useEffect(() => {
       socket.on('message', receiveMessage)
 
@@ -132,8 +133,15 @@ console.log('messagesBd', messagesBd);
 
    }, [messagesBd, messages])
 
-  
 
+   useEffect(() =>{
+   const messagefil=messages.filter((e)=> e.idChannel===12)
+      setMessageFilter(messagefil)
+     
+   },[chanelUnique,messages])
+
+// console.log(messages[0].idChannel);
+console.log('golsss',messagesFilter);
    return (
       <div className='boxMessage'>
           {chanelUnique.length ===0 ?
@@ -152,11 +160,11 @@ console.log('messagesBd', messagesBd);
            ))}
 
          <div className='messageContainer'>
-         {messagesBd.map((message, index) => (
+         {messages.map((message, index) => (
                <div key={index} className='messageContent'>
-                  <label className='nameMessage'>{message.name_user}</label>
+                  <label className='nameMessage'>{message.nameuser}</label>
                   <div className='message'>
-                     <p className='textMessage'>{message.text_message}</p>
+                     <p className='textMessage'>{message.textmessage}</p>
                   </div>
                </div>
             ))}
@@ -202,6 +210,7 @@ console.log('messagesBd', messagesBd);
                      {/* <img className="paper" alt='imágen de un avatar' src={paper} /> */}
 
                   </div>
+                  
 
                </form>
             </div>
