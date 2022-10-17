@@ -144,8 +144,8 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
    
 
 
-console.log('chanel unique',chanelUnique);
-console.log('golsss',messagesFilter);
+// console.log('chanel unique',chanelUnique);
+// console.log('golsss',messagesFilter);
    return (
       <div className='boxMessage'>
           {chanelUnique.length ===0 ?
@@ -164,7 +164,7 @@ console.log('golsss',messagesFilter);
            ))}
 
          <div className='messageContainer'>
-         {messages.map((message, index) => (
+         {messagesFilter.map((message, index) => (
                <div key={index} className='messageContent'>
                   <label className='nameMessage'>{message.nameuser}</label>
                   <div className='message'>

@@ -12,13 +12,17 @@ export const Users = () => {
 
 
    useEffect(() => {
-      socket.on('users', receiveUser)
-
+      socket.on('users', receiveUser);
+      socket.on('allUsers', console.log)
       return () => {
          socket.off('users', receiveUser)
+         // socket.emit('leave',receiveUser)
+       
          console.log('cerrando socket');
       }
    }, [receiveUser]);
+
+
 
    return (
       <div className='boxBodyHome'>
