@@ -5,13 +5,11 @@ import InputEmoji from "react-input-emoji";
 import axios from 'axios';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
 
-export const Chats = ({chanelUnique}) => {
+export const Chats = ({chanelUnique, setChanelUnique}) => {
    
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
    const dataUser = sessionUser;
-
-   const [text, setText] = useState("");
 
    const [message, setMessage] = useState('');
    const [messages, setMessages] = useState([]);
@@ -20,8 +18,6 @@ export const Chats = ({chanelUnique}) => {
    
    const [messagesBd, setmessagesBd] = useState([]);
    const [messagesBdGrl, setMessagesBdGrl] = useState([]);
-
-   const [messagesChatGnrl, setMessagesChatGnrl] = useState([]);
 
    
    useEffect(() =>{
@@ -33,37 +29,9 @@ export const Chats = ({chanelUnique}) => {
       })
          .catch(error => {
             console.error(error.message);
-         })
-      
+         })      
      
    },[])
-
-//    useEffect(() => {
-
-//      if(chanelUnique.length===0){
-//       axios.post('http://localhost:4000/general/messages',{ idChannel: 1})
-//       .then((response) => {
-//          setmessagesBd(response.data); 
-//       })
-//          .catch(error => {
-//             console.error(error.message);
-//        }) 
-//      }else {
-     
-//       const a=chanelUnique[0].id_channel
-//       axios.post('http://localhost:4000/general/messages',{ idChannel: a})
-//       .then((response) => {
-//          setmessagesBd(response.data); 
-
-//       })
-//          .catch(error => {
-//             // setmessagesBd([]); 
-//             console.error(error.message);
-            
-//        }) 
-//      }
-        
-// }, [ chanelUnique]);
 
    const handleSubmitInput = (e) => {       
      
@@ -98,12 +66,9 @@ export const Chats = ({chanelUnique}) => {
       console.log('inicia la conversación')
          console.log(error, 'error');
 
-      });
-
-      
+      });    
      
    }
-
 
    const receiveMessage = useCallback((message) => {
             setMessages((prevState) => [...prevState, message])
@@ -133,27 +98,16 @@ export const Chats = ({chanelUnique}) => {
    },[chanelUnique,messages])
    
    
-
-
-// console.log('chanel unique',chanelUnique);
-// console.log('golsss',messagesFilter);
    return (
       <div className='boxMessage'>
-          {chanelUnique.length ===0 ?
-          
-          messagesChatGnrl.map((channel, index) => (
+          {
+            chanelUnique.map((channel, index) => (
          <div key={index}  className='nameChanelHome'>
             <h2 id='chatNames'>{channel.namechanel}</h2>
          </div>
-           ))          
-          : 
-          
-          chanelUnique.map((channel, index) => (
-         <div key={index}  className='nameChanelHome'>
-            <h2 id='chatNames'>{channel.namechanel}</h2>
-         </div>
-           ))}
-
+           ))       
+        
+         }
          <div className='messageContainer'>
          {messagesFilter.map((message, index) => (
                <div key={index}      
@@ -164,21 +118,6 @@ export const Chats = ({chanelUnique}) => {
                   </div>
                </div>
             ))}
-
-
-            {/* {messages.map((message, index) => (
-               <li
-                  key={index}
-                  className={`${message.from === "me" ? "messageContentRigth" : "messageContentLeft"}`}
-
-               >
-                  <label className='nameMessage'>{message.from}</label>
-                     <label className={`${message.from === "me" ? "messageMe" : "messageOther"}`}>
-                        {message.body}
-                     </label>
-                
-               </li>
-            ))} */}
 
             <div className='sendText'>
                <form className='sendText' onSubmit={handleSubmitInput}>
@@ -191,12 +130,7 @@ export const Chats = ({chanelUnique}) => {
                      onEnter={handleSubmitInput}
                      placeholder="Escribe un mensaje..."
                   />
-                  {/* <input 
-                  className='inputSend'
-                   type='text' 
-                   onChange={e => setMessage(e.target.value)} value={message} /> */}
-
-
+                 
                   <button className='boxpaper' type='submit'>         
                         <img className="paper" alt='imágen de un avatar' src={paper} />         
                   </button>

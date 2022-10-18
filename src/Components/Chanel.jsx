@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import chanelImg from '../images/chanel.png';
+import imgPinguino from '../images/pinguino.gif';
+
 import { socket } from './conection';
 
 
@@ -119,6 +121,9 @@ export const Chanel = ({setChanelUnique}) => {
                </div>
             ))}
 
+         </div>
+         <div>
+            <img className='imgPinguino' src={imgPinguino} alt='img de pinguino'/>
          </div>
 
       </div>
