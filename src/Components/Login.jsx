@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import logo from '../images/logo.png'
 import buhoAvion from '../images/buhoAvion.png';
 import { useForm } from 'react-hook-form';
@@ -26,12 +26,12 @@ export const Login = () => {
          if (respuesta.statusText === 'OK') {
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
             // const socket = io('http://localhost:4000');
-            socket.emit('userConected', respuesta.data);
-
+            // socket.emit('userConected', respuesta.data);   
+                 
             navigate('/home');
          }
       }
-
+      
    }
 
    return (
