@@ -52,7 +52,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
             idUser: dataUser.id, 
             dateTime:new Date(), 
             idChannel: chanelUnique[0].id_channel,
-            nameuser: "me"            
+            nameuser: "Yo"            
          }
          setMessages([...messages, newMessage])
          setMessage('');
@@ -111,8 +111,8 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
          <div className='messageContainer'>
          {messagesFilter.map((message, index) => (
                <div key={index}      
-               className={`${message.nameuser === "me" ? "messageContentRigth" : "messageContentLeft"}`}>
-                  <label className='nameMessage'>{message.nameuser}</label>
+               className={`${message.nameuser === "Yo" ? "messageContentRigth" : "messageContentLeft"}`}>
+                  <label className='nameMessage'>{message.nameuser}:</label>
                   <div className='message'>
                      <p className='textMessage'>{message.textmessage}</p>
                   </div>
