@@ -287,29 +287,42 @@ h2 {
 }
 
 .nameMessage {
-  margin: 0 4%;
+  font-weight: bolder;
+    font-size: 12px;
 }
 
 .inputSend {
   height: 30px;
-  width: 60%;
+  max-width: 60%;
   border-radius: 9px;
   border: 0.5px solid;
-  margin: 0 3%
+  margin: 0 3%;
+
 }
 
-/* .messageContentRigth {
-  background-color: aqua;
+.messageContentRigth {
+  margin: 3px 0;
+  background-color: rgb(174, 187, 230);
   display: flex;
   flex-direction: column;
   margin-left: auto;
+  width: auto;
+  max-width: 90%;
+  justify-content: end;
+  align-items: flex-end;
+  padding: 0.3em 0.5em;
+  border-radius: 10px;
 }
+
 .messageContentLeft{
-  background-color: #77ADDE;
-  display: flex;
+  margin: 3px 0;
+  background-color: #a3e9ee;
   flex-direction: column;
-  width: 100%;
-} */
+  max-width: 90%;
+  padding: 0.3em 0.5em;
+  border-radius: 10px;
+  width: max-content;
+}
 
 .message {
   display: flex;
@@ -317,13 +330,15 @@ h2 {
 }
 
 .boxpaper {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  border-radius: 9px;
-  background-color: #116CDD;
+  width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 9px;
+    background-color: #116CDD;
+    margin-right: 1em;
+    border: none;
 
 }
 
@@ -352,15 +367,14 @@ h2 {
 
   max-height: 68vh;
   overflow-y: auto;
+  scroll-behavior: smooth;
 
 }
 
 .textMessage {
-  border: 1px solid #116CDD;
   border-radius: 20px;
-  padding: 2%;
+  /* padding: 2%; */
   margin: 1%;
-  background: #fff;
 }
 
 .avatarUser {

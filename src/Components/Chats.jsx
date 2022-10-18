@@ -5,7 +5,7 @@ import InputEmoji from "react-input-emoji";
 import axios from 'axios';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
 
-export const Chats = ({chanelUnique, setChanelUnique}) => {
+export const Chats = ({chanelUnique}) => {
    
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -88,6 +88,10 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
          }
          setMessages([...messages, newMessage])
          setMessage('');
+         // if(screen.width > 900) {
+         //    window.scrollTo(0, 1200);
+
+         // }
          })
       .catch((error) => {     
      
@@ -95,30 +99,17 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
          console.log(error, 'error');
 
       });
+
+      
      
    }
 
 
    const receiveMessage = useCallback((message) => {
-         // if(message.idChannel===chanelUnique[0].id_channel){
             setMessages((prevState) => [...prevState, message])
-            // console.log('golass',message.idChannel,chanelUnique[0].id_channel);
-         // }
-    
+          
    }, [setMessages])
 
-   // useEffect(() => {
-   //    axios.post('http://localhost:4000/get/messages',{ idChannel: chanelUnique[0].id_channel })
-   //   .then((response) => {
-   //      setmessagesBd(response.data); 
-   //      console.log('response', response); 
-   //   })
-   //      .catch(error => {
-   //         console.error(error.message);
-   //      })  
-  
-   //   }, []);
-   // console.log('golass',message.idChannel,chanelUnique[0].id_channel)
    useEffect(() => {
       socket.on('message', receiveMessage)
 
@@ -165,7 +156,8 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
 
          <div className='messageContainer'>
          {messagesFilter.map((message, index) => (
-               <div key={index} className='messageContent'>
+               <div key={index}      
+               className={`${message.nameuser === "me" ? "messageContentRigth" : "messageContentLeft"}`}>
                   <label className='nameMessage'>{message.nameuser}</label>
                   <div className='message'>
                      <p className='textMessage'>{message.textmessage}</p>
@@ -191,13 +183,13 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
             <div className='sendText'>
                <form className='sendText' onSubmit={handleSubmitInput}>
                   <InputEmoji
-                     className='inputSend'
+                     // className='inputSend'
                      type='text'
                      value={message}
                      onChange={setMessage}
                      cleanOnEnter
                      onEnter={handleSubmitInput}
-                     placeholder="Type a message"
+                     placeholder="Escribe un mensaje..."
                   />
                   {/* <input 
                   className='inputSend'
@@ -205,15 +197,9 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
                    onChange={e => setMessage(e.target.value)} value={message} /> */}
 
 
-                  <div className='boxpaper'>
-
-                     {/* <input type='submit' /> */}
-                     <button className='buttonSend' type='submit'>
-                        <img className="paper" alt='imágen de un avatar' src={paper} />
-                     </button>
-                     {/* <img className="paper" alt='imágen de un avatar' src={paper} /> */}
-
-                  </div>
+                  <button className='boxpaper' type='submit'>         
+                        <img className="paper" alt='imágen de un avatar' src={paper} />         
+                  </button>
                   
 
                </form>
