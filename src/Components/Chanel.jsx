@@ -77,7 +77,7 @@ export const Chanel = ({setChanelUnique}) => {
       socket.on('namesChanels', receiveChanel)
       return () => {
          socket.off('namesChanels', receiveChanel)
-         console.log('cerrando socket');
+         // console.log('cerrando socket');
       }
    }, [receiveChanel]);
 

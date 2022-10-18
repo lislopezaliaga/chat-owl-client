@@ -3,26 +3,35 @@ import userAvatarn from '../images/user.png';
 import { socket } from './conection';
 
 export const Users = () => {
+   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
+
    const [nameUser, setNameUsers] = useState([]);
+   // const [nameUserStatus, setNameUsersStatus] = useState(false);
+
+   useEffect(() =>{
+      socket.emit('userConected', sessionUser); 
+      setNameUsers([sessionUser]);
+   }, []);
+
 
    const receiveUser = useCallback((user) => {
 
-      setNameUsers((prevState) => [...prevState, user])
-   }, [setNameUsers])
+      setNameUsers(user)
+   }, [setNameUsers])   
 
 
    useEffect(() => {
-      socket.on('users', receiveUser);
-      socket.on('allUsers', console.log)
+      // socket.on('users', receiveUser);
+      socket.on('allUsers', receiveUser)
       return () => {
-         socket.off('users', receiveUser)
+         socket.off('allUsers', receiveUser)
          // socket.emit('leave',receiveUser)
        
          console.log('cerrando socket');
       }
    }, [receiveUser]);
 
-
+console.log(nameUser);
 
    return (
       <div className='boxBodyHome'>
