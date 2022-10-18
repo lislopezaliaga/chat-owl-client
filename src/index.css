@@ -127,7 +127,7 @@ p {
   align-items: center;
 }
 .buhoLogo{
-  width: 70px;
+  width: 60px;
 }
 .boxMenu {
   display: flex;
@@ -148,7 +148,7 @@ p {
 }
 
 .avatar {
-  width: 50px;
+  width: 45px;
 }
 
 .nameUser {
@@ -174,12 +174,20 @@ p {
   display: flex;
   flex-direction: column;
   width: 30%;
-  box-shadow: 9px 0px 4px rgb(0 0 0 / 25%);
+  box-shadow: 0px -7px 20px 0px rgb(0 0 0 / 25%);
   background-blend-mode: luminosity;
   align-items: center;
   z-index: 1;
 }
-
+.boxBodyUsers{
+  display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 1px -4px 9px 0px rgb(0 0 0 / 25%);
+    background-blend-mode: luminosity;
+    align-items: center;
+    z-index: 1;
+}
 .boxMessage {
   display: flex;
   flex-direction: column;
@@ -216,10 +224,23 @@ h2 {
 
 .nameChanel {
   display: flex;
-  font-size: 18px;
-  width: 80%;
-  margin-top: 1%;
+  font-size: 2em;
+  width: 60%;
+  margin-top: 1.5%;
   align-items: center;
+  border-radius: 12px;
+  border-radius: 14px;
+  border-color: #000000;
+  border-width: 0px 1px 1px 1px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);  
+  margin: 2% 0;
+  padding: 0  0  0 0.5em;
+}
+
+.nameChanel:hover{
+  background-color: #9ec4f1;
+  cursor: pointer;
+  border-radius: 12px;
 }
 
 .nameChanelHome {
@@ -258,13 +279,16 @@ h2 {
   width: 23%;
   border-radius: 8px;
   height: 30px;
-  background-color: #116CDD;
+  /* background-color: #116CDD; */
  font-size: 18px;
   border: none;
     color: white;
+    
     box-shadow: -2px 6px 4px rgb(0 0 0 / 25%);
-
-
+    background: linear-gradient(143deg, #E35975 0%, #AD3C8A 37.5%, #7068AB 69.79%, #3494CD 93.75%);
+    /* background: linear-gradient(227deg, #0ca7cd 0%, #3b7eb8 37.5%, #5e60a9 69.79%, #6758a5 93.75%); */
+    box-shadow: 4px 5px 4px rgb(0 0 0 / 25%);
+    border-radius: 8px;
 }
 
 #chatNames {
@@ -278,11 +302,11 @@ h2 {
   display: flex;
   width: 100%;
   position: absolute;
-  bottom: 1.5%;
+  bottom: 0.03%;
   left: 0;
-
   align-items: center;
   justify-content: center;
+  background-color: #77ADDE;
 
 }
 
@@ -336,10 +360,15 @@ h2 {
     justify-content: center;
     height: 30px;
     border-radius: 9px;
-    background-color: #116CDD;
+    /* background-color: #116CDD; */
     margin-right: 1em;
     border: none;
-
+   
+    box-shadow: -2px 6px 4px rgb(0 0 0 / 25%);
+    background: linear-gradient(16deg, #E35975 0%, #AD3C8A 37.5%, #7068AB 69.79%, #3494CD 93.75%);
+    /* background: linear-gradient(143deg, #E35975 0%, #AD3C8A 37.5%, #7068AB 69.79%, #3494CD 93.75%); */
+    /* background: linear-gradient(227deg, #0ca7cd 0%, #3b7eb8 37.5%, #5e60a9 69.79%, #6758a5 93.75%); */
+    border-radius: 8px;
 }
 
 .paper {
@@ -351,6 +380,8 @@ h2 {
   margin: 2%;
   font-size: 17px;
 }
+
+
 
 .userContent {
   display: flex;
@@ -449,6 +480,61 @@ h2 {
   margin: 1%;
 
 } */
+
+/* estilos del perfil de usuario */
+.boxUsersConected{
+  width: 30%;
+}
+.boxPerfilUser{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  /* background-color: #116CDD; */
+}
+.backImg{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F4E51F 0%, #F3C237 20.31%, #EA624F 36.98%, #E94963 52.6%, #CC3B7E 66.15%, #A24689 80.73%, #6E4996 96.87%);
+}
+.boxWhite{
+  border-radius: 50%;
+  width: 92px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.imgPerfilUser{
+  width: 80px;
+}
+.boxPerfilUser label{
+  font-family:  'Lato';
+  font-weight: bold;
+  font-size: large;
+  padding-right: 0.5em;
+}
+.boxNameEdith{
+  display: flex;
+  align-items: center;
+  
+}
+.iconEdith{
+  width: 30px;
+  height: 30px;
+}
+.imgPinguino{
+  width: 80px;
+
+}
 @media only screen and (max-width: 900px) {
 
   .input,

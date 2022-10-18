@@ -34,7 +34,7 @@ export const Users = () => {
 console.log(nameUser);
 
    return (
-      <div className='boxBodyHome'>
+      <div className='boxBodyUsers'>
          <h2>Conectados</h2>
 
          <div className='userContent'>
