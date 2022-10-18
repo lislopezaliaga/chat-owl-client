@@ -28,7 +28,7 @@ export const Chats = ({chanelUnique, setChanelUnique}) => {
       axios.get('http://localhost:4000/channelGrl')
       .then((response) => {
 
-         setMessagesChatGnrl(response.data);        
+         setChanelUnique(response.data);        
 
       })
          .catch(error => {
