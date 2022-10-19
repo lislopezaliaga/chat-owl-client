@@ -6,15 +6,21 @@ import { Chanel } from './Chanel';
 import { Chats } from './Chats';
 import { PerfilUsuario } from './PerfilUsuario';
 import { Users } from './Users';
-
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import { socket } from './conection';
 export const Home = () => {
-
+  const navigate = useNavigate();
   const [chanelUnique, setChanelUnique] = useState([]);
 
 
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
-
-  const dataUser = sessionUser;
+  
+  async function signOut(){
+    const res = await axios.put('http://localhost:4000/user/active', {statusUser:0, idUser:sessionUser.id});
+    socket.emit('userDisconnected', sessionUser);   
+    navigate('/login')
+  }
   
   return (
     <div>
@@ -25,7 +31,7 @@ export const Home = () => {
         </div>
         <div className='boxMenu'>
         
-          <img className="cerrarSesion" alt='imágen de cerrarSesion' src={exit} />
+          <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
       </div>
 

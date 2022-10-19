@@ -309,7 +309,10 @@ h2 {
   background-color: #77ADDE;
 
 }
-
+.buttonModal{
+  background: linear-gradient(143deg, #E35975 0%, #AD3C8A 37.5%, #7068AB 69.79%, #3494CD 93.75%);
+  box-shadow: 4px 5px 4px rgb(0 0 0 / 25%);
+}
 .nameMessage {
   font-weight: bolder;
     font-size: 12px;
@@ -534,6 +537,9 @@ h2 {
 .imgPinguino{
   width: 80px;
 
+}
+.inputFile{
+  width: 20% !important;
 }
 @media only screen and (max-width: 900px) {
 

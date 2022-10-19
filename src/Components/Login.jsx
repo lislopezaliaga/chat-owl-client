@@ -25,8 +25,9 @@ export const Login = () => {
     
          if (respuesta.statusText === 'OK') {
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
-            // const socket = io('http://localhost:4000');
-            // socket.emit('userConected', respuesta.data);   
+
+            const res = await axios.put('http://localhost:4000/user/active', {statusUser:1, idUser:respuesta.data.id})
+            socket.emit('userConected', respuesta.data);   
                  
             navigate('/home');
          }
