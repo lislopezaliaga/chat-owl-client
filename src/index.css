@@ -515,9 +515,28 @@ h2 {
   align-items: center;
   justify-content: center;
   background-color: white;
+  position: relative;
+
+}
+.iconClose{
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #6c757d;
+  color: white;
+  width: 20px;
+  /* padding: 0.3em; */
+  border-radius: 50%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imgPerfilUser{
-  width: 80px;
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .boxPerfilUser label{
   font-family:  'Lato';
