@@ -15,7 +15,7 @@ export const PerfilUsuario = () => {
     <div className='boxPerfilUser'>
         <div className='backImg'>
             <div className='boxWhite'>
-                <img  className='imgPerfilUser' src={userAvatarn} alt='imagen del usuario'/>
+                <img  className='imgPerfilUser' src={sessionUser.imguser===null?userAvatarn:sessionUser.imguser} alt='imagen del usuario'/>
             </div>
         </div>
         <div className='boxNameEdith'>

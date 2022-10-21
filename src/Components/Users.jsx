@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import userAvatarn from '../images/user.png';
+import messageImg from '../images/burbuja.png';
 import { socket } from './conection';
 import axios from 'axios';
 
@@ -8,26 +9,28 @@ export const Users = () => {
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
 
-   useEffect(() =>{
+   useEffect(() => {
       axios.get('http://localhost:4000/usersConnected')
-      .then((response) => {
-         const users=[];
-         response.data.forEach(e=>{
-            const datauser={
-               id: e.id_user, 
-               name: e.name_user, 
-               status: e.status_user
-            }  
-            users.push(datauser)
-         })
-         setNameUsers(users);        
+         .then((response) => {
+      
+            const users = [];
+            response.data.forEach(e => {
+               const datauser = {
+                  id: e.id_user,
+                  name: e.name_user,
+                  status: e.status_user,
+                  imguser: e.imguser,
+               }
+               users.push(datauser)
+            })
+            setNameUsers(users);
 
-      })
+         })
          .catch(error => {
             console.error(error.message);
-         })      
-     
-   },[])
+         })
+
+   }, [])
 
 
    const receiveUser = useCallback((user) => {
@@ -46,21 +49,28 @@ export const Users = () => {
          console.log('cerrando socket');
       }
    }, [receiveUser]);
-console.log(nameUser);
+
    return (
       <div className='boxBodyUsers'>
          <h2>Conectados</h2>
 
          <div className='userContent'>
             {nameUser.map((user, index) => (user.id !== sessionUser.id &&
-               <div key={index} className='userboxContent'>
-                  <div className='imgAvatar'>
-                     <img className="avatarUser" alt='imágen de un avatar' src={userAvatarn} />
-                  </div>
+               <div key={index} className='userContainer'>
+                  <div className='userboxContent'>
+                     <div className='imgAvatar'>
+                        <img className="avatarUser" alt='imágen de un avatar' src={user.imguser === null ? userAvatarn : user.imguser} />
+                     </div>
 
-                  <p className='nameuserconect'>{user.name}</p>
-                  <div className='divstatus'>
-                     <div className='status'></div>
+                     <label className='nameuserconect'>{user.name}</label>
+                     <div className='divstatus'>
+                        <div className='status'></div>
+                     </div>
+
+
+                  </div>
+                  <div>
+                     <img src={messageImg} className='messageDirect' alt='mensaje' />
                   </div>
 
                </div>

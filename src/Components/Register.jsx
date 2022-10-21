@@ -9,14 +9,14 @@ export const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (datUser) => {
-    console.log(datUser);
+
     const res = await fetch('http://localhost:4000/auth/signUp', {
       method: "POST",
       body: JSON.stringify(datUser),
       headers: { "Content-Type": "application/json" },
     });
     const data = await res.json();
-    console.log(data);
+
     navigate('/login')
   }
   return (

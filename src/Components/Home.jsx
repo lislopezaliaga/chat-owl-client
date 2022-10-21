@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { socket } from './conection';
 export const Home = () => {
   const navigate = useNavigate();
-  const [chanelUnique, setChanelUnique] = useState([]);
+  const [chanelUnique, setChanelUnique] = useState([{}]);
 
 
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
