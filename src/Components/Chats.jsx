@@ -100,7 +100,6 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
    useEffect(() => {
       const messagefil = messages.filter((e) => e.idChannel === chanelUnique[0].id_channel)
       setMessageFilter(messagefil)
-      // console.log(messagesFilter[0].dateTime.getHours()+':'+ messagesFilter[0].dateTime.getMinutes());
 
 
    }, [chanelUnique, messages])
@@ -125,7 +124,6 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
 
                   </label>
-
                   <div className='message'>
                      <label className='textMessage'>{message.textmessage}</label>
                    
@@ -140,7 +138,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             <div className='sendText'>
                <form className='sendText' onSubmit={handleSubmitInput}>
                   <InputEmoji
-                     // className='inputSend'
+
                      type='text'
                      value={message}
                      onChange={setMessage}
