@@ -104,13 +104,13 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
    }, [chanelUnique, messages])
 
-   console.log(messagesFilter);
+   console.log('chanelUnique',chanelUnique);
    return (
       <div className='boxMessage'>
          {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
-                  <h2 id='chatNames'>{channel.namechanel}</h2>
+                  <h2 id='chatNames'>{channel.namechanel||channel.name}</h2>
                </div>
             ))
 

@@ -13,6 +13,8 @@ export const Home = () => {
   const navigate = useNavigate();
   const [chanelUnique, setChanelUnique] = useState([{}]);
 
+  const [messageUnique, setMessageUnique] = useState([{}]);
+
 
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   
@@ -40,7 +42,7 @@ export const Home = () => {
        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
        <div className='boxUsersConected'>
           <PerfilUsuario />
-          <Users></Users>
+          <Users setChanelUnique={setChanelUnique}></Users>
        </div>
       </div>
       <div className='footer'>

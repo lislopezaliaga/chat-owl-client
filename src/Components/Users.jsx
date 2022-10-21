@@ -4,7 +4,7 @@ import messageImg from '../images/burbuja.png';
 import { socket } from './conection';
 import axios from 'axios';
 
-export const Users = () => {
+export const Users = ({setChanelUnique}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
@@ -50,6 +50,11 @@ export const Users = () => {
       }
    }, [receiveUser]);
 
+   function messageUser(idUser){
+      setChanelUnique(nameUser.filter((e)=>e.id===idUser))
+
+   }
+
    return (
       <div className='boxBodyUsers'>
          <h2>Conectados</h2>
@@ -69,7 +74,7 @@ export const Users = () => {
 
 
                   </div>
-                  <div>
+                  <div onClick={(e)=>messageUser(user.id)} >
                      <img src={messageImg} className='messageDirect' alt='mensaje' />
                   </div>
 
