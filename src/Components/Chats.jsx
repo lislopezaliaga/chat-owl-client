@@ -52,7 +52,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
       e.preventDefault();
       axios.post('http://localhost:4000/messages', objMessage)
          .then(() => {
-            console.log(objMessage);
+            
             socket.emit('chatmessage', objMessage);
             const newMessage = {
                textmessage: message,
@@ -104,7 +104,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
    }, [chanelUnique, messages])
 
-   console.log('chanelUnique',chanelUnique);
+
    return (
       <div className='boxMessage'>
          {
