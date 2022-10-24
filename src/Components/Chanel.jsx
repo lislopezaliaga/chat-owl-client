@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import chanelImg from '../images/chanel.png';
 import imgPinguino from '../images/pinguino.gif';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import { socket } from './conection';
+import { MenuMessage } from './MenuMessage';
 
 
 
@@ -38,7 +40,8 @@ export const Chanel = ({setChanelUnique}) => {
          idDueño: sessionUser.id
       }
 
-      axios.post('http://localhost:4000/chanel', chanelUser).then((res) => {
+      axios.post('http://localhost:4000/chanel', chanelUser)
+      .then((res) => {
          // console.log(res);
          socket.emit('nameChanel', chanelUser);
          setNameChanels([...nameChanel, chanelUser]);
@@ -96,7 +99,6 @@ export const Chanel = ({setChanelUnique}) => {
       //    console.log('cerrando socket');
       // }
    }
-
    return (
 
       <div className='boxBodyHome' >
@@ -118,6 +120,14 @@ export const Chanel = ({setChanelUnique}) => {
                <div key={index} className='nameChanel' onClick={(e) => changeChanel(chanel.namechanel)}>
                   <img className="avatar" alt='imágen de un avatar' src={chanelImg} />
                   <p className='nameChanelP'>{chanel.namechanel}</p>
+                  {chanel.id_creator === sessionUser.id && 
+                  <MenuMessage 
+                     idChannel = {chanel.id_channel} 
+                     nameChannel = {chanel.namechanel}
+                 />
+                  // <img className='menuMessage' alt='img de menú' src={menuMessage} />                               
+                  }
+                 
                </div>
             ))}
 

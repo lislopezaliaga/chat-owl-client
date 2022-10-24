@@ -14,7 +14,7 @@ export const Login = () => {
    const onSubmit = async (datUser) => {
 
       const res = await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
-
+      
       if (res) {
 
          const respuesta = await axios.get('http://localhost:4000/users', {
@@ -33,7 +33,7 @@ export const Login = () => {
             navigate('/home');
          }
       }
-      
+   
    }
 
    return (
