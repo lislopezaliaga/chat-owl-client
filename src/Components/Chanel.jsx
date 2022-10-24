@@ -30,9 +30,6 @@ export const Chanel = ({setChanelUnique}) => {
    const [nameChanelGn, setNameChanelsGn] = useState([]);
 
    // const [chanelUnique, setChanelUnique] = useState([]);
-
-
-
    const onSubmitChanel = async (objectChanel) => {
 
       const chanelUser = {
@@ -43,8 +40,8 @@ export const Chanel = ({setChanelUnique}) => {
       axios.post('http://localhost:4000/chanel', chanelUser)
       .then((res) => {
          // console.log(res);
-         socket.emit('nameChanel', chanelUser);
-         setNameChanels([...nameChanel, chanelUser]);
+         socket.emit('nameChanel', res.data);
+         setNameChanels([...nameChanel, res.data]);
          reset();
       }).catch((error) => {
          errorChanels(error.response.data.message);
@@ -88,8 +85,40 @@ export const Chanel = ({setChanelUnique}) => {
 
    useEffect(() => {
       setNameChanelsGn([...nameChanelBd, ...nameChanel])  
-
    }, [nameChanelBd, nameChanel])
+
+// set de channel eliminado
+   const removedChannel = useCallback((removedChannelSocket) => {
+      console.log('removedChannelSocket', removedChannelSocket);
+      setNameChanels(nameChanel.filter((e)=>e.id_channel!==removedChannelSocket))
+      setNameChanelsBd(nameChanelBd.filter((e)=>e.id_channel!==removedChannelSocket))
+      setNameChanelsGn(nameChanelGn.filter((e)=>e.id_channel!==removedChannelSocket))
+   }, [nameChanelGn, setNameChanelsGn, setNameChanels, nameChanel, nameChanelBd, setNameChanelsBd])
+
+   useEffect(()=>{
+      socket.on('removedChannel', removedChannel)
+      return () => {
+         socket.off('removedChannel', removedChannel)
+      }
+   }, [removedChannel]);
+
+
+// set de channel eliminado
+const editChannel = useCallback((editChannelSocket) => {
+   setNameChanelsGn(nameChanelGn.map((e)=>{
+      if(e.id_channel===editChannelSocket.id_channel){
+          e.namechanel = editChannelSocket.namechanel
+      }
+      return e;
+   }))
+}, [nameChanelGn, setNameChanelsGn])
+
+useEffect(()=>{
+   socket.on('editedChanel', editChannel)
+   return () => {
+      socket.off('editedChanel', editChannel)
+   }
+}, [editChannel]);
 
 
    const changeChanel = (name) => {

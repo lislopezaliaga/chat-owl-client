@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { socket } from './conection';
 
 export const ModalEliminar = ({ show, handleClose, nameChannel, idChannel}) => {
-    function deleteChannel(){
+    function OndeleteChannel(){
         axios.delete(`http://localhost:4000/channel/${idChannel}`)
-        .then((response) => {     
+        .then((response) => {
             handleClose();
+            socket.emit('removeChannel', idChannel);
         
         })
            .catch(error => {
@@ -26,7 +28,7 @@ export const ModalEliminar = ({ show, handleClose, nameChannel, idChannel}) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Cancelar
                 </Button>
-                <Button variant="primary" onClick={deleteChannel}>
+                <Button variant="primary" onClick={OndeleteChannel}>
                     Eliminar
                 </Button>
                 </Modal.Footer>
