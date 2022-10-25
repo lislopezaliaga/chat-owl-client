@@ -23,7 +23,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
    useEffect(() => {
       axios.get('http://localhost:4000/channelGrl')
          .then((response) => {
-
+// console.log(response.data);
             setChanelUnique(response.data);
 
          })
@@ -31,7 +31,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             console.error(error.message);
          })
 
-   }, [])
+   }, [setChanelUnique])
 
    const handleSubmitInput = (e) => {
       const date=new Date();
@@ -96,6 +96,39 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
    }, [messagesBd, messages])
 
+   const removedMessage = useCallback((removedMessageSocketId) => {
+      setMessageFilter(messagesFilter.filter((e)=>e.idChannel!==removedMessageSocketId))
+      setChanelUnique([{
+         id_channel: 1,
+         namechanel: "#channelGeneral"
+      }])
+
+   }, [messagesFilter, setMessageFilter])
+
+   useEffect(()=>{
+      socket.on('removedChannel', removedMessage)
+      return () => {
+         socket.off('removedChannel', removedMessage)
+      }
+   }, [removedMessage]);
+
+   const editMessage = useCallback((editMessageSocketId) => {      
+      setChanelUnique(chanelUnique.map((e)=>{
+         if(e.id_channel===editMessageSocketId.id_channel){
+             e.namechanel = editMessageSocketId.namechanel
+         }
+         return e;
+      }))
+
+   }, [chanelUnique, setChanelUnique])
+
+   useEffect(()=>{
+      socket.on('editedChanel', editMessage)
+      return () => {
+         socket.off('editedChanel', editMessage)
+      }
+   }, [editMessage]);
+
 
    useEffect(() => {
       const messagefil = messages.filter((e) => e.idChannel === chanelUnique[0].id_channel)
@@ -110,7 +143,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
          {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
-                  <h2 id='chatNames'>{channel.namechanel||channel.name}</h2>
+                  <h2 id='chatNames'>{channel.namechanel}</h2>
                </div>
             ))
 

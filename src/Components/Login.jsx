@@ -9,12 +9,15 @@ import { socket } from './conection';
 export const Login = () => {
 
    const { register, handleSubmit, formState: { errors } } = useForm();
+   const [errorLogin, setErrorLogin] = useState("");
+
    let navigate = useNavigate();
 
    const onSubmit = async (datUser) => {
-
+      try {
+         
       const res = await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
-
+      
       if (res) {
 
          const respuesta = await axios.get('http://localhost:4000/users', {
@@ -33,7 +36,16 @@ export const Login = () => {
             navigate('/home');
          }
       }
-      
+      } catch (error) {
+         setErrorLogin(error.response.data.message );
+         setTimeout(() => {
+            setErrorLogin('');
+         }, 2000)
+      }
+
+        
+
+   
    }
 
    return (
@@ -51,6 +63,9 @@ export const Login = () => {
                {errors.email?.type === 'required' && <label>'Este campo es requerido'</label>}
                <input className="input" type="password" placeholder="Contraseña" {...register('passwordUser', { required: true })} />
                {errors.password?.type === 'required' && <label>'Este campo es requerido'</label>}
+               
+               <label className='errorChanel'>{errorLogin}</label>
+
                <input className="button" type="submit" value="Inicia Sesión" />
             </form>
             <p>Si no tienes una cuenta, regístrate <Link to="/register">Aquí</Link></p>
