@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ModalEditChannel } from './ModalEditChannel';
 import { ModalEliminar } from './ModalEliminar';
+import menuMessage from '../images/menu.png';
 
 export const MenuMessage = ({idChannel, nameChannel }) => {
     const [show, setShow] = useState(false);
@@ -18,7 +19,7 @@ export const MenuMessage = ({idChannel, nameChannel }) => {
     <div>
          <Dropdown>
                      <Dropdown.Toggle className='menuMessage' variant="success" id="dropdown-basic">
-                        {/* <img className='menuMessage' alt='img de menú' src={menuMessage} />                   */}
+                        <img className='menuMessageImg' alt='img de menú' src={menuMessage} />                  
                      </Dropdown.Toggle>
                
                      <Dropdown.Menu>

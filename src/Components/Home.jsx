@@ -11,11 +11,10 @@ import { useNavigate } from "react-router-dom";
 import { socket } from './conection';
 export const Home = () => {
   const navigate = useNavigate();
-  const [chanelUnique, setChanelUnique] = useState([{}]);
-
-  const [messageUnique, setMessageUnique] = useState([{}]);
-
-
+  const [chanelUnique, setChanelUnique] = useState([{    
+    id_channel:1,
+    id_creator: 0,
+    namechanel :"#channelGeneral"}]);
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   
   async function signOut(){

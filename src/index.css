@@ -226,7 +226,34 @@ h2 {
   border-radius: 9px;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
+  overflow: auto;
+}
+.boxChanel::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.boxChanel::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+
+.boxChanel::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.boxChanel::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.boxChanel::-webkit-scrollbar-thumb {
+  /* background-color: #797979; */
+  background-color: #2F4152;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.boxChanel::-webkit-scrollbar-track {
+  border-radius: 10px;  
 }
 
 .nameChanel {
@@ -409,7 +436,7 @@ h2 {
 }
 
 .messageContainer {
-  width: 90%;
+  width: 96%;
   display: flex;
   flex-direction: column;
 
@@ -417,6 +444,31 @@ h2 {
   overflow-y: auto;
   scroll-behavior: smooth;
 
+}
+.messageContainer::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.messageContainer::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.messageContainer::-webkit-scrollbar-button:increment,.messageContainer::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.messageContainer::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.messageContainer::-webkit-scrollbar-thumb {
+  background-color: #2F4152;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.messageContainer::-webkit-scrollbar-track {
+  border-radius: 10px;  
 }
 
 .textMessage {
@@ -640,19 +692,19 @@ h2 {
   margin-left: 10px;
 
 }
-/* .menuMessage{
-  width: 13px !important;
-  margin-left: 5% !important;
+.menuMessage{
+  /* width: 13px !important; */
+  /* margin-left: 5% !important;
   position: absolute !important;
   right: 6px !important;
-  top: 5px !important;
-} */
+  top: 5px !important; */
+}
 .dropdown{
   width: 13px !important;
-  margin-left: 5% !important;
+  margin-right: 6% !important;
   position: absolute !important;
   right: 6px !important;
-  top: 0 !important;
+  top: -20px !important;
 }
 .dropdown-toggle:empty::after {
   margin-left: 0;
@@ -660,14 +712,25 @@ h2 {
   padding: 0;
 }
 .btn-success{
-  background-color: white !important;
+  background-color: transparent !important;
   --bs-btn-border-color: none !important;
   padding: 0 !important;
+  color: transparent !important;
 }
 span{
   font-size: 11px;
   color: #6c757d;
   font-weight: 400;
+}
+.btn-primary {
+
+  --bs-btn-bg: #db4f58 !important;
+  --bs-btn-border-color: #a73535 !important;
+  --bs-btn-hover-bg: #a73535 !important;
+  --bs-btn-hover-border-color: #db4f58 !important ;
+}
+.menuMessageImg{
+  width: 16px;
 }
 @media only screen and (max-width: 900px) {
 

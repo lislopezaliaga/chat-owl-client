@@ -59,7 +59,7 @@ export const Chanel = ({setChanelUnique}) => {
       axios.get('http://localhost:4000/chanel').then((response) => {
 
          setNameChanelsBd(response.data);
-         setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))
+         // setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))
     
 
       })
