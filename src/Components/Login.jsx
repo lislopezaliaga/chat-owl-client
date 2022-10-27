@@ -16,11 +16,11 @@ export const Login = () => {
    const onSubmit = async (datUser) => {
       try {
          
-      const res = await axios.post('http://localhost:4000/auth/logIn', datUser, { withCredentials: true })
+      const res = await axios.post('https://chatowl.onrender.com/auth/logIn', datUser, { withCredentials: true })
       
       if (res) {
 
-         const respuesta = await axios.get('http://localhost:4000/users', {
+         const respuesta = await axios.get('https://chatowl.onrender.com/users', {
             headers: {
                Authorization: document.cookie.substring(11) //the token is a variable which holds the token
             }
@@ -30,7 +30,7 @@ export const Login = () => {
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
 
 
-            const res = await axios.put('http://localhost:4000/user/active', {statusUser:1, idUser:respuesta.data.id})
+            const res = await axios.put('https://chatowl.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
             socket.emit('userConected', respuesta.data);   
                  
             navigate('/home');
