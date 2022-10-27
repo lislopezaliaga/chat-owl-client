@@ -18,7 +18,7 @@ export const Home = () => {
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   
   async function signOut(){
-    const res = await axios.put('http://localhost:4000/user/active', {statusUser:0, idUser:sessionUser.id});
+    const res = await axios.put('https://chatowl.onrender.com/user/active', {statusUser:0, idUser:sessionUser.id});
     socket.emit('userDisconnected', sessionUser);   
     navigate('/login')
   }
