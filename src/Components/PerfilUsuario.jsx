@@ -13,6 +13,7 @@ export const PerfilUsuario = () => {
     const handleShow = () => setShow(true);
   return (
     <div className='boxPerfilUser'>
+       <h2>Mi perfil</h2>
         <div className='backImg'>
             <div className='boxWhite'>
                 <img  className='imgPerfilUser' src={sessionUser.imguser===null?userAvatarn:sessionUser.imguser} alt='imagen del usuario'/>
