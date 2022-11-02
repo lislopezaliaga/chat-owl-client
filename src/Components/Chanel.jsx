@@ -29,6 +29,13 @@ export const Chanel = ({setChanelUnique}) => {
 
    const [nameChanelGn, setNameChanelsGn] = useState([]);
 
+   const axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
+
    // const [chanelUnique, setChanelUnique] = useState([]);
    const onSubmitChanel = async (objectChanel) => {
 
@@ -37,7 +44,7 @@ export const Chanel = ({setChanelUnique}) => {
          idDueño: sessionUser.id
       }
 
-      axios.post('https://chatowl-2l34.onrender.com/chanel', chanelUser)
+      axios.post('https://chatowl-2l34.onrender.com/chanel', chanelUser,axiosConfig)
       .then((res) => {
          // console.log(res);
          socket.emit('nameChanel', res.data);
@@ -54,12 +61,7 @@ export const Chanel = ({setChanelUnique}) => {
 
 
    }
-   let axiosConfig = {
-      headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-      }
-    };
+
    useEffect(() => {
       axios.get('https://chatowl-2l34.onrender.com/chanel',axiosConfig).then((response) => {
 
