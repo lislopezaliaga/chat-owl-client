@@ -13,7 +13,7 @@ export const Register = () => {
     const res = await fetch('https://chatowl-2l34.onrender.com/auth/signUp', {
       method: "POST",
       body: JSON.stringify(datUser),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", },
     });
     const data = await res.json();
 
