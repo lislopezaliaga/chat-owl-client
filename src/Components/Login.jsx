@@ -12,30 +12,39 @@ export const Login = () => {
    const [errorLogin, setErrorLogin] = useState("");
 
    let navigate = useNavigate();
-
+   let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
    const onSubmit = async (datUser) => {
       try {
          
-      const res = await axios.post('https://chatowl.onrender.com/auth/logIn', datUser, { withCredentials: true })
-      
-      if (res) {
-
-         const respuesta = await axios.get('https://chatowl.onrender.com/users', {
+      const res = await axios.post('https://chatowl-2l34.onrender.com/auth/logIn', datUser, axiosConfig )
+      console.log('hola1', res);
+      // if (res) {
+        
+         console.log('hola1', res);
+         const respuesta = await axios.get('https://chatowl-2l34.onrender.com/users', {
             headers: {
-               Authorization: document.cookie.substring(11) //the token is a variable which holds the token
+               // Authorization: document.cookie.substring(11),
+               Authorization: res.data,
+                           
             }
          })
-    
-         if (respuesta.statusText === 'OK') {
+         console.log(respuesta.status);
+         if (respuesta.status === 200) {
+            console.log('hola3');
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
 
-
-            const res = await axios.put('https://chatowl.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
+         console.log(respuesta)
+            const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
             socket.emit('userConected', respuesta.data);   
                  
             navigate('/home');
          }
-      }
+      // }
       } catch (error) {
          setErrorLogin(error.response.data.message );
          setTimeout(() => {
