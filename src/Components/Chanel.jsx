@@ -54,9 +54,14 @@ export const Chanel = ({setChanelUnique}) => {
 
 
    }
-
+   let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
    useEffect(() => {
-      axios.get('https://chatowl-2l34.onrender.com/chanel').then((response) => {
+      axios.get('https://chatowl-2l34.onrender.com/chanel',axiosConfig).then((response) => {
 
          setNameChanelsBd(response.data);
          // setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))
