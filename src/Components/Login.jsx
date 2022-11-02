@@ -22,14 +22,16 @@ export const Login = () => {
       try {
          
       const res = await axios.post('https://chatowl-2l34.onrender.com/auth/logIn', datUser, axiosConfig )
-      console.log('hola1', res);
+      sessionStorage.setItem('token', JSON.stringify(res.data));
+      const sessionToken = JSON.parse(sessionStorage.getItem('token'));
+   
       // if (res) {
         
          console.log('hola1', res);
          const respuesta = await axios.get('https://chatowl-2l34.onrender.com/users', {
             headers: {
                // Authorization: document.cookie.substring(11),
-               Authorization: res.data,
+               Authorization: sessionToken,
                            
             }
          })
