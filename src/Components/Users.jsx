@@ -68,17 +68,20 @@ export const Users = ({setChanelUnique}) => {
       // const dataFilterUsers=nameUser.filter(e=>e.id!=);
       
 
-const users=[...nameUserbd, ...nameUser]
+   const users=[...nameUserbd, ...nameUser];
+   console.log('users',users)
          let result = users.filter((item,index)=>{
-         return users.indexOf(item.id) === index;
+         return users.indexOf(item) === index;
          })
+         console.log('res',result);
       setNameUsersGn(result)
 
               
    }, [nameUserbd,nameUser])
 console.log('socket',nameUser);
-console.log('bd',nameUser);
+console.log('bd',nameUserbd);
 console.log('Gn',nameUserGn);
+
 
 
    return (
@@ -86,7 +89,7 @@ console.log('Gn',nameUserGn);
          <h2>Conectados</h2>
 
          <div className='userContent'>
-            {nameUser.map((user, index) => (user.id !== sessionUser.id &&
+            {nameUserGn.map((user, index) => (user.id !== sessionUser.id &&
                <div key={index} className='userContainer'>
                   <div className='userboxContent'>
                      <div className='imgAvatar'>
