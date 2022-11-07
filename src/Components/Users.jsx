@@ -66,15 +66,16 @@ export const Users = ({setChanelUnique}) => {
    }
    useEffect(() => {
       // const dataFilterUsers=nameUser.filter(e=>e.id!=);
-      setNameUsersGn([...nameUserbd, ...nameUser])  
+      
 
-
-         let result = nameUserGn.filter((item,index)=>{
-         return nameUserGn.indexOf(item.id) === index;
+const users=[...nameUserbd, ...nameUser]
+         let result = users.filter((item,index)=>{
+         return users.indexOf(item.id) === index;
          })
-   console.log(result); //[1,2,6,5,9,'33']
+      setNameUsersGn(result)
+
               
-   }, [nameUser, nameUserbd,setNameUsersGn,nameUserGn,])
+   }, [nameUserbd,nameUser])
 console.log('socket',nameUser);
 console.log('bd',nameUser);
 console.log('Gn',nameUserGn);
