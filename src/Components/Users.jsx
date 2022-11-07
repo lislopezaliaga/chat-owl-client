@@ -70,10 +70,21 @@ export const Users = ({setChanelUnique}) => {
 
    const users=[...nameUserbd, ...nameUser];
    console.log('users',users)
-         let result = users.filter((item,index)=>{
-         return users.indexOf(item) === index;
-         })
-         console.log('res',result);
+         // let result = users.filter((item,index)=>{
+         // return users.indexOf(item.id) === index;
+         // })
+         // console.log('res',result);
+
+ 
+
+         const result = users.reduce((acc,item)=>{
+           if(!acc.includes(item.id)){
+              acc.push(item);
+           }
+           return acc;
+         },[])
+     
+         console.log(result); //[1,2,6,5,9,'33']
       setNameUsersGn(result)
 
               

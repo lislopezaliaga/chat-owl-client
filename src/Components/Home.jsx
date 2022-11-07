@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import buhoLogo from '../images/buhoLogo.png';
 import exit from '../images/exit.png';
-import userAvatarn from '../images/user.png';
+
 import { Chanel } from './Chanel';
 import { Chats } from './Chats';
 import { PerfilUsuario } from './PerfilUsuario';
