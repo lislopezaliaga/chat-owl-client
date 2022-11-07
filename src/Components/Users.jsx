@@ -8,6 +8,10 @@ export const Users = ({setChanelUnique}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
+
+   const [nameUserbd, setNameUsersbd] = useState([]);
+   const [nameUserGn, setNameUsersGn] = useState([]);
+
    let axiosConfig = {
       headers: {
           'Content-Type': 'application/json;charset=UTF-8',
@@ -28,7 +32,8 @@ export const Users = ({setChanelUnique}) => {
                }
                users.push(datauser)
             })
-            setNameUsers(users);
+            setNameUsersbd(users);
+            // setNameUsers(users);
 
          })
          .catch(error => {
@@ -59,6 +64,21 @@ export const Users = ({setChanelUnique}) => {
       setChanelUnique(nameUser.filter((e)=>e.id===idUser))
 
    }
+   useEffect(() => {
+      // const dataFilterUsers=nameUser.filter(e=>e.id!=);
+      setNameUsersGn([...nameUserbd, ...nameUser])  
+
+
+         let result = nameUserGn.filter((item,index)=>{
+         return nameUserGn.indexOf(item.id) === index;
+         })
+   console.log(result); //[1,2,6,5,9,'33']
+              
+   }, [nameUser, nameUserbd,setNameUsersGn,nameUserGn,])
+console.log('socket',nameUser);
+console.log('bd',nameUser);
+console.log('Gn',nameUserGn);
+
 
    return (
       <div className='boxBodyUsers'>
