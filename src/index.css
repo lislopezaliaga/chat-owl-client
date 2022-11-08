@@ -7,7 +7,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family:-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
   ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -229,18 +229,20 @@ h2 {
   align-items: center;
   overflow: auto;
 }
+
 .boxChanel::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
 .boxChanel::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
 
-.boxChanel::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.boxChanel::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .boxChanel::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -254,7 +256,7 @@ h2 {
 }
 
 .boxChanel::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 .nameChanel {
@@ -423,7 +425,7 @@ h2 {
   font-size: 16px;
   color: #2F4152;
   font-weight: 500;
-  
+
 }
 
 
@@ -446,17 +448,19 @@ h2 {
   scroll-behavior: smooth;
 
 }
+
 .messageContainer::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
 .messageContainer::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
-.messageContainer::-webkit-scrollbar-button:increment,.messageContainer::-webkit-scrollbar-button {
+.messageContainer::-webkit-scrollbar-button:increment,
+.messageContainer::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .messageContainer::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -469,7 +473,7 @@ h2 {
 }
 
 .messageContainer::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 .textMessage {
@@ -665,11 +669,11 @@ h2 {
   background-color: white !important;
   border: white !important;
   border-radius: 50% !important;
- 
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
 }
 
 .cam {
@@ -680,7 +684,8 @@ h2 {
 .modal-content {
   width: 85% !important;
 }
-.userContainer{
+
+.userContainer {
   display: flex;
   width: 90%;
   align-items: center;
@@ -688,52 +693,108 @@ h2 {
   align-content: center;
 
 }
-.messageDirect{
+
+.messageDirect {
   width: 30px;
   height: 30px;
   margin-left: 10px;
 
 }
-.menuMessage{
+
+.menuMessage {
   /* width: 13px !important; */
   /* margin-left: 5% !important;
   position: absolute !important;
   right: 6px !important;
   top: 5px !important; */
 }
-.dropdown{
+
+.dropdown {
   width: 13px !important;
   margin-right: 6% !important;
   position: absolute !important;
   right: 6px !important;
   top: -20px !important;
 }
+
 .dropdown-toggle:empty::after {
   margin-left: 0;
   color: black;
   padding: 0;
 }
-.btn-success{
+
+.btn-success {
   background-color: transparent !important;
   --bs-btn-border-color: none !important;
   padding: 0 !important;
   color: transparent !important;
 }
-span{
+
+span {
   font-size: 11px;
   color: #6c757d;
   font-weight: 400;
 }
+
 .btn-primary {
 
   --bs-btn-bg: #db4f58 !important;
   --bs-btn-border-color: #a73535 !important;
   --bs-btn-hover-bg: #a73535 !important;
-  --bs-btn-hover-border-color: #db4f58 !important ;
+  --bs-btn-hover-border-color: #db4f58 !important;
 }
-.menuMessageImg{
+
+.menuMessageImg {
   width: 16px;
 }
+.hamburger .line{
+  width: 40px;
+  height: 5px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 8px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover{
+  cursor: pointer;
+}
+#hamburger-3.is-active .line:nth-child(1),
+#hamburger-3.is-active .line:nth-child(3){
+  width: 40px;
+}
+
+#hamburger-3.is-active .line:nth-child(1){
+  -webkit-transform: translateX(-10px) rotate(-45deg);
+  -ms-transform: translateX(-10px) rotate(-45deg);
+  -o-transform: translateX(-10px) rotate(-45deg);
+  transform: translateX(-10px) rotate(-45deg);
+}
+
+#hamburger-3.is-active .line:nth-child(3){
+  -webkit-transform: translateX(-10px) rotate(45deg);
+  -ms-transform: translateX(-10px) rotate(45deg);
+  -o-transform: translateX(-10px) rotate(45deg);
+  transform: translateX(-10px) rotate(45deg);
+}
+.menuHamburger{
+  display: none;
+}
+@media only screen and (max-width: 1200px) {
+
+  .nameChanel {
+
+    width: 78%;
+  }
+
+  .userContainer {
+
+    width: 94%;
+  }
+}
+
 @media only screen and (max-width: 900px) {
 
   .input,
@@ -742,9 +803,68 @@ span{
     width: 100%;
   }
 
+  .nameChanel {
+
+    width: 90%;
+  }
+
+  .userContainer {
+
+    width: 98%;
+  }
 }
 
-@media only screen and (max-width: 573px) {
+@media only screen and (max-width: 800px) {
+
+  .nameChanel {
+
+    width: 95%;
+  }
+
+  .userContainer {
+
+    width: 100%;
+  }
+  .nameChanelP {
+
+    font-size: 13px;
+  }
+  .nameuserconect {
+    font-size: 12px;
+    width: 70%;
+
+  }
+
+  .imgAvatar {
+    width: 28%;
+  }
+  .inputChanel {
+   
+    width: 65%;
+  }
+  .buttonChanel {
+ 
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  .nameChanel {
+
+    width: 98%;
+  }
+  .inputChanel {
+   
+    width: 60%;
+  }
+  .buttonChanel {
+ 
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
 
   .leftContainer {
     display: none;
@@ -757,5 +877,30 @@ span{
   .input {
     width: 100%;
   }
-
+  .menuHamburger{
+    display: flex;
+  }
+  .boxMenu{
+    display: none;
+  }
+  .menuResponsive{
+    top: 1% !important;
+    right: 15px !important;
+  }
+  .boxMessage {
+    display: none;
+  }
+  .boxUsersConected {
+    display: none;
+  }
+  .boxBodyHome {
+  
+    width: 100%;
+  }
+  .nameChanel {
+    width: 80%;
+  }
+  .inputChanel {
+    width: 80%;
+  }
 }

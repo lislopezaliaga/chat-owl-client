@@ -9,6 +9,7 @@ import { Users } from './Users';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { socket } from './conection';
+import { Burger } from './Burger';
 export const Home = () => {
   const navigate = useNavigate();
   const [chanelUnique, setChanelUnique] = useState([{    
@@ -36,10 +37,15 @@ export const Home = () => {
           <img className="buhoLogo" alt='imágen de un buho con un avión' src={buhoLogo} />
           <h2 className='titleChat'>ChatOwl</h2>
         </div>
-        <div className='boxMenu'>
         
+        <div className='boxMenu'>
+         
+
           <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
+        <div className='menuHamburger'>
+            <Burger></Burger>
+          </div>
       </div>
 
       <div className='generalBoxBodyHome'>
