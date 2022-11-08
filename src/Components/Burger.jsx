@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { socket } from './conection';
 import { useNavigate } from "react-router-dom";
 
-export const Burger = ({setperfilUser}) => {
+export const Burger = ({setperfilUser,setUsers}) => {
 
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   const navigate = useNavigate();
@@ -23,7 +23,12 @@ export const Burger = ({setperfilUser}) => {
     navigate('/login')
   }
   function perfil(){
-    setperfilUser(true)
+    setperfilUser(true);
+    setUsers(false);
+  }
+  function users(){
+    setUsers(true);
+    setperfilUser(false);
   }
   return (
     <div onClick={menuResponsive}>
@@ -37,9 +42,9 @@ export const Burger = ({setperfilUser}) => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1" onClick={perfil}>Perfil</Dropdown.Item>
-          <Dropdown.Item href="#/action-2" >Usuarios</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={signOut} >Cerrar Sessión</Dropdown.Item>
+          <Dropdown.Item  onClick={perfil}>Perfil</Dropdown.Item>
+          <Dropdown.Item  onClick={users}>Usuarios</Dropdown.Item>
+          <Dropdown.Item  onClick={signOut} >Cerrar Sessión</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 

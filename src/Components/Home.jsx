@@ -14,6 +14,8 @@ export const Home = () => {
 
   const navigate = useNavigate();
   const [perfilUser, setperfilUser] = useState(false);
+  const [usersChat, setUsers] = useState(false);
+
   const [chanelUnique, setChanelUnique] = useState([{
     id_channel: 1,
     id_creator: 0,
@@ -47,21 +49,22 @@ export const Home = () => {
           <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
         <div className='menuHamburger'>
-          <Burger setperfilUser={setperfilUser}></Burger>
+          <Burger setperfilUser={setperfilUser} setUsers={setUsers}></Burger>
         </div>
       </div>
 
       <div className='generalBoxBodyHome'>
-        {!perfilUser &&
+        {(!perfilUser && !usersChat)&&
           <Chanel setChanelUnique={setChanelUnique}></Chanel>
         }
 
         <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
-        {perfilUser &&
+        {(perfilUser||usersChat) &&
           <div className='boxUsersConected'>
-
-            <PerfilUsuario />
-            {!perfilUser &&
+            {perfilUser &&
+              <PerfilUsuario />}
+            
+            { usersChat &&
             <Users setChanelUnique={setChanelUnique}></Users>
             }
            
