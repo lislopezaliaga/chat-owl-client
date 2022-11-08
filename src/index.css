@@ -747,7 +747,8 @@ span {
 .menuMessageImg {
   width: 16px;
 }
-.hamburger .line{
+
+.hamburger .line {
   width: 40px;
   height: 5px;
   background-color: #ecf0f1;
@@ -758,30 +759,33 @@ span {
   transition: all 0.3s ease-in-out;
 }
 
-.hamburger:hover{
+.hamburger:hover {
   cursor: pointer;
 }
+
 #hamburger-3.is-active .line:nth-child(1),
-#hamburger-3.is-active .line:nth-child(3){
+#hamburger-3.is-active .line:nth-child(3) {
   width: 40px;
 }
 
-#hamburger-3.is-active .line:nth-child(1){
+#hamburger-3.is-active .line:nth-child(1) {
   -webkit-transform: translateX(-10px) rotate(-45deg);
   -ms-transform: translateX(-10px) rotate(-45deg);
   -o-transform: translateX(-10px) rotate(-45deg);
   transform: translateX(-10px) rotate(-45deg);
 }
 
-#hamburger-3.is-active .line:nth-child(3){
+#hamburger-3.is-active .line:nth-child(3) {
   -webkit-transform: translateX(-10px) rotate(45deg);
   -ms-transform: translateX(-10px) rotate(45deg);
   -o-transform: translateX(-10px) rotate(45deg);
   transform: translateX(-10px) rotate(45deg);
 }
-.menuHamburger{
+
+.menuHamburger {
   display: none;
 }
+
 @media only screen and (max-width: 1200px) {
 
   .nameChanel {
@@ -825,10 +829,12 @@ span {
 
     width: 100%;
   }
+
   .nameChanelP {
 
     font-size: 13px;
   }
+
   .nameuserconect {
     font-size: 12px;
     width: 70%;
@@ -838,12 +844,14 @@ span {
   .imgAvatar {
     width: 28%;
   }
+
   .inputChanel {
-   
+
     width: 65%;
   }
+
   .buttonChanel {
- 
+
     font-size: 16px;
   }
 }
@@ -854,12 +862,14 @@ span {
 
     width: 98%;
   }
+
   .inputChanel {
-   
+
     width: 60%;
   }
+
   .buttonChanel {
- 
+
     font-size: 14px;
   }
 }
@@ -877,30 +887,55 @@ span {
   .input {
     width: 100%;
   }
-  .menuHamburger{
+
+  .menuHamburger {
     display: flex;
   }
-  .boxMenu{
+
+  .boxMenu {
     display: none;
   }
-  .menuResponsive{
+
+  .menuResponsive {
     top: 1% !important;
     right: 15px !important;
   }
+
   .boxMessage {
     display: none;
   }
+
   .boxUsersConected {
-    display: none;
+    display: flex;
+    width: 100%;
+
   }
+  .modal-content {
+    width: 100% !important;
+}
+
   .boxBodyHome {
-  
+
     width: 100%;
   }
+
   .nameChanel {
     width: 80%;
   }
+
   .inputChanel {
     width: 80%;
   }
+
+  .nameChanelP {
+    font-size: 16px;
+  }
+
+  .createChanel {
+
+    width: 100%;
+  }
+  .formChanel {
+width: 90%;
+}
 }

@@ -11,25 +11,28 @@ import { useNavigate } from "react-router-dom";
 import { socket } from './conection';
 import { Burger } from './Burger';
 export const Home = () => {
+
   const navigate = useNavigate();
-  const [chanelUnique, setChanelUnique] = useState([{    
-    id_channel:1,
+  const [perfilUser, setperfilUser] = useState(false);
+  const [chanelUnique, setChanelUnique] = useState([{
+    id_channel: 1,
     id_creator: 0,
-    namechanel :"#channelGeneral"}]);
+    namechanel: "#channelGeneral"
+  }]);
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   let axiosConfig = {
     headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json;charset=UTF-8',
+      "Access-Control-Allow-Origin": "*",
     }
   };
-  
-  async function signOut(){
-    const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:0, idUser:sessionUser.id},axiosConfig);
-    socket.emit('userDisconnected', sessionUser);   
+
+  async function signOut() {
+    const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', { statusUser: 0, idUser: sessionUser.id }, axiosConfig);
+    socket.emit('userDisconnected', sessionUser);
     navigate('/login')
   }
-  
+
   return (
     <div>
       <div className='nav'>
@@ -37,24 +40,34 @@ export const Home = () => {
           <img className="buhoLogo" alt='imágen de un buho con un avión' src={buhoLogo} />
           <h2 className='titleChat'>ChatOwl</h2>
         </div>
-        
+
         <div className='boxMenu'>
-         
+
 
           <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
         <div className='menuHamburger'>
-            <Burger></Burger>
-          </div>
+          <Burger setperfilUser={setperfilUser}></Burger>
+        </div>
       </div>
 
       <div className='generalBoxBodyHome'>
-       <Chanel  setChanelUnique={setChanelUnique}></Chanel>
-       <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
-       <div className='boxUsersConected'>
-          <PerfilUsuario />
-          <Users setChanelUnique={setChanelUnique}></Users>
-       </div>
+        {!perfilUser &&
+          <Chanel setChanelUnique={setChanelUnique}></Chanel>
+        }
+
+        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
+        {perfilUser &&
+          <div className='boxUsersConected'>
+
+            <PerfilUsuario />
+            {!perfilUser &&
+            <Users setChanelUnique={setChanelUnique}></Users>
+            }
+           
+          </div>
+        }
+
       </div>
       <div className='footer'>
 
