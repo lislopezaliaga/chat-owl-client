@@ -227,7 +227,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
    }, [messages,messagesPersonal,chanelUnique,setMessageFilter])
 
-   console.log('personal', messagesPersonal);
+  
    return (
       <div className='boxMessage'>
          {

@@ -61,40 +61,47 @@ export const Users = ({setChanelUnique}) => {
    }, [receiveUser]);
 
    function messageUser(idUser){
-      setChanelUnique(nameUser.filter((e)=>e.id===idUser))
+      setChanelUnique(nameUserGn.filter((e)=>e.id===idUser))
 
    }
    useEffect(() => {
       // const dataFilterUsers=nameUser.filter(e=>e.id!=);
       
 
-   const users=[...nameUserbd, ...nameUser];
-   console.log('users',users)
-         // let result = users.filter((item,index)=>{
-         // return users.indexOf(item.id) === index;
-         // })
-         // console.log('res',result);
+   let users=[...nameUserbd, ...nameUser]
+// const result = users.reduce((acc,item)=>{
+            
+//    if(!acc.includes(item)){
 
- 
-
-         const result = users.reduce((acc,item)=>{
-           if(!acc.includes(item.id)){
-              acc.push(item);
-           }
-           return acc;
-         },[])
-     
-         console.log(result); //[1,2,6,5,9,'33']
-      setNameUsersGn(result)
+//       acc.push(item);
+//    }
+//    return acc;
+//  },[])
+let hash = {};
+users = users.filter(o => hash[o.id] ? false : hash[o.id] = true);
+// console.log(JSON.stringify(array));
+      setNameUsersGn(users)
 
               
-   }, [nameUserbd,nameUser])
-console.log('socket',nameUser);
-console.log('bd',nameUserbd);
-console.log('Gn',nameUserGn);
+   }, [nameUserbd,nameUser,setNameUsers])
+// console.log('socket',nameUser);
+// console.log('bd',nameUser);
+// console.log('Gn',nameUserGn);
+
+const disconnected = useCallback((userDissconnected) => {
+   const users=nameUserGn.filter(e=>e.id!==userDissconnected.id)
+   setNameUsersGn(users);
+}, [setNameUsersGn,nameUserGn])
 
 
+useEffect(() => {
 
+   socket.on('userLogout', disconnected)
+   return () => {
+      socket.off('userLogout', disconnected)
+      // console.log('cerrando socket');
+   }
+}, [disconnected]);
    return (
       <div className='boxBodyUsers'>
          <h2>Conectados</h2>

@@ -25,9 +25,7 @@ export const Login = () => {
       sessionStorage.setItem('token', JSON.stringify(res.data));
       const sessionToken = JSON.parse(sessionStorage.getItem('token'));
    
-      // if (res) {
-        
-         console.log('hola1', res);
+     
          const respuesta = await axios.get('https://chatowl-2l34.onrender.com/users', {
             headers: {
                // Authorization: document.cookie.substring(11),
@@ -35,15 +33,21 @@ export const Login = () => {
                            
             }
          })
-         console.log(respuesta.status);
+      
          if (respuesta.status === 200) {
-            console.log('hola3');
+          
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
 
-         console.log(respuesta)
+      
             const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
-            socket.emit('userConected', respuesta.data);   
-                 
+            const  obj={
+               id:respuesta.data.id,
+               imguser:respuesta.data.imguser,
+               name:respuesta.data.name,
+               status:respuesta.data.status,
+              }
+            socket.emit('userConected', obj);   
+         
             navigate('/home');
          }
       // }
