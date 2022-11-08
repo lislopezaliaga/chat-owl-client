@@ -4,7 +4,7 @@ import userAvatarn from '../images/user.png';
 import { ModalUser } from './ModalUser';
 
 
-export const PerfilUsuario = () => {
+export const PerfilUsuario = ({perfilUser}) => {
     const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
     const [show, setShow] = useState(false);
@@ -12,7 +12,7 @@ export const PerfilUsuario = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   return (
-    <div className='boxPerfilUser'>
+    <div className={perfilUser? 'boxPerfilUser block':'boxPerfilUser non'}>
        <h2>Mi perfil</h2>
         <div className='backImg'>
             <div className='boxWhite'>

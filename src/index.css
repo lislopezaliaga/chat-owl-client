@@ -948,4 +948,10 @@ width: 90%;
   width: 292px;
   height: 292px;
 }
+.block{
+  display: flex;
+}
+.non{
+  display: none ;
+}
 }

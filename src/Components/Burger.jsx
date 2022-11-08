@@ -30,6 +30,10 @@ export const Burger = ({setperfilUser,setUsers}) => {
     setUsers(true);
     setperfilUser(false);
   }
+  function chanel(){
+    setUsers(false);
+    setperfilUser(false);
+  }
   return (
     <div onClick={menuResponsive}>
       <Dropdown className='menuResponsive'>
@@ -42,6 +46,7 @@ export const Burger = ({setperfilUser,setUsers}) => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
+        <Dropdown.Item  onClick={chanel}>Canales</Dropdown.Item>
           <Dropdown.Item  onClick={perfil}>Perfil</Dropdown.Item>
           <Dropdown.Item  onClick={users}>Usuarios</Dropdown.Item>
           <Dropdown.Item  onClick={signOut} >Cerrar Sessión</Dropdown.Item>

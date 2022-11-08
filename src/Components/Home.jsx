@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState} from 'react';
 import buhoLogo from '../images/buhoLogo.png';
 import exit from '../images/exit.png';
 
@@ -54,22 +54,20 @@ export const Home = () => {
       </div>
 
       <div className='generalBoxBodyHome'>
-        {(!perfilUser && !usersChat)&&
-          <Chanel setChanelUnique={setChanelUnique}></Chanel>
-        }
 
+       <Chanel setChanelUnique={setChanelUnique} perfilUser={perfilUser} usersChat={usersChat}></Chanel>
         <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
-        {(perfilUser||usersChat) &&
-          <div className='boxUsersConected'>
-            {perfilUser &&
-              <PerfilUsuario />}
+       
+          <div className={perfilUser||usersChat?'boxUsersConected block':'boxUsersConected non'}>
+           
+              <PerfilUsuario perfilUser={perfilUser} />
             
-            { usersChat &&
-            <Users setChanelUnique={setChanelUnique}></Users>
-            }
+         
+            <Users setChanelUnique={setChanelUnique} usersChat={usersChat}></Users>
+            
            
           </div>
-        }
+        
 
       </div>
       <div className='footer'>

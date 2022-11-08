@@ -4,7 +4,7 @@ import messageImg from '../images/burbuja.png';
 import { socket } from './conection';
 import axios from 'axios';
 
-export const Users = ({setChanelUnique}) => {
+export const Users = ({setChanelUnique,usersChat}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
@@ -103,7 +103,7 @@ useEffect(() => {
    }
 }, [disconnected]);
    return (
-      <div className='boxBodyUsers'>
+      <div  className={usersChat ?'boxBodyUsers block':'boxBodyUsers non'}>
          <h2>Conectados</h2>
 
          <div className='userContent'>

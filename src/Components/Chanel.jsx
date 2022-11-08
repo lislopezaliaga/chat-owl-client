@@ -10,7 +10,7 @@ import { MenuMessage } from './MenuMessage';
 
 
 
-export const Chanel = ({setChanelUnique}) => {
+export const Chanel = ({setChanelUnique,perfilUser,usersChat}) => {
 
    // const setChanelUnique = props.setChanelUnique
 
@@ -137,7 +137,7 @@ useEffect(()=>{
    }
    return (
 
-      <div className='boxBodyHome' >
+      <div  className={perfilUser||usersChat ?'non':'boxBodyHome block'} >
          <h2>Canales</h2>
          <div className='createChanel'>
 
