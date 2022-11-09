@@ -228,9 +228,9 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
 
    }, [messages,messagesPersonal,chanelUnique,setMessageFilter])
    function backChanel(){
-      setUsers(true);
+      setUsers(false);
       setperfilUser(false);
-      setChat(false)
+      setChat(false);
    }
   
    return (
