@@ -4,7 +4,7 @@ import userAvatarn from '../images/user.png';
 import { ModalUser } from './ModalUser';
 import back from '../images/backt.png';
 
-export const PerfilUsuario = ({ perfilUser,setChat,setUsers,setperfilUser }) => {
+export const PerfilUsuario = ({ perfilUser,setChat,setUsers,setperfilUser,setcolor }) => {
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
   const [show, setShow] = useState(false);
@@ -15,6 +15,7 @@ export const PerfilUsuario = ({ perfilUser,setChat,setUsers,setperfilUser }) => 
     setUsers(false);
     setperfilUser(false);
     setChat(false);
+    setcolor=(false);
  }
   return (
     <div className={perfilUser ? 'boxPerfilUser block' : 'boxPerfilUser non'}>

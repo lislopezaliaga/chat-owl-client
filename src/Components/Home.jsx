@@ -52,18 +52,18 @@ export const Home = () => {
           <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
         <div className='menuHamburger'>
-          <Burger setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat}></Burger>
+          <Burger setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat} setcolor={setcolor}></Burger>
         </div>
       </div>
 
       <div className='generalBoxBodyHome'>
 
        <Chanel setChanelUnique={setChanelUnique} perfilUser={perfilUser} usersChat={usersChat} setChat={setChat} chat={chat} setperfilUser={setperfilUser} setUsers={setUsers} color={color} setcolor={setcolor}></Chanel>
-        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} chat={chat} setUsers={setUsers} setChat={setChat} setperfilUser={setperfilUser}></Chats>
+        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} chat={chat} setUsers={setUsers} setChat={setChat} setperfilUser={setperfilUser} setcolor={setcolor}></Chats>
        
           <div className={perfilUser||usersChat?'boxUsersConected block':'boxUsersConected non'}>
            
-              <PerfilUsuario perfilUser={perfilUser} setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat}/>
+              <PerfilUsuario perfilUser={perfilUser} setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat} setcolor={setcolor}/>
             
          
             <Users setChanelUnique={setChanelUnique} usersChat={usersChat}  setChat={setChat} setUsers={setUsers} setperfilUser={setperfilUser} setcolor={setcolor} color={color}></Users>

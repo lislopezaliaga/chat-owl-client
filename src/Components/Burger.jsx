@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import userAvatarn from '../images/user.png';
 import down from '../images/down.png';
 
-export const Burger = ({ setperfilUser, setUsers, setChat }) => {
+export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
 
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
   const navigate = useNavigate();
@@ -27,17 +27,20 @@ export const Burger = ({ setperfilUser, setUsers, setChat }) => {
   function perfil() {
     setperfilUser(true);
     setUsers(false);
-    setChat(false)
+    setChat(false);
+    setcolor(true);
   }
   function users() {
     setUsers(true);
     setperfilUser(false);
-    setChat(false)
+    setChat(false);
+    setcolor(false);
   }
   function chanel() {
     setUsers(false);
     setperfilUser(false);
-    setChat(false)
+    setChat(false);
+    setcolor(true);
   }
   return (
     <div onClick={menuResponsive} className='menuBurger'>

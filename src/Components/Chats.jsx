@@ -5,7 +5,7 @@ import InputEmoji from "react-input-emoji";
 import axios from 'axios';
 import back from '../images/back.png';
 
-export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setperfilUser}) => {
+export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setperfilUser,setcolor}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -231,6 +231,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
       setUsers(false);
       setperfilUser(false);
       setChat(false);
+      setcolor(true);
    }
   
    return (
