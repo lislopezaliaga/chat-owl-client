@@ -239,7 +239,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
                   <div className='back'>
-                     <img className="buhoLogo" alt='imágen de un buho con un avión' src={back} onClick={backChanel} />
+                     <img className="buhoLogo" alt='imágen de atra' src={back} onClick={backChanel} />
                   </div>
                   <h2 id='chatNames'>{channel.namechanel || channel.name}</h2>
                </div>

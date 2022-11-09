@@ -106,7 +106,15 @@ useEffect(() => {
 }, [disconnected]);
    return (
       <div  className={usersChat ?'boxBodyUsers block':'boxBodyUsers non'}>
-         <h2>Conectados</h2>
+          <div className='buttonChanelUser'>
+            <div className='buttonChan blue' >
+               <h2>Canales</h2>
+            </div>
+            <div className='buttonUser' >
+               <h2>Usuarios</h2>
+            </div>
+         </div>
+         <h2 className='titleNone'>Conectados</h2>
 
          <div className='userContent'>
             {nameUserGn.map((user, index) => (user.id !== sessionUser.id &&

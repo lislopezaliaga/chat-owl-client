@@ -564,7 +564,9 @@ h2 {
   margin: 1%;
 
 } */
-
+.buttonChanelUser{
+  display: none;
+}
 /* estilos del perfil de usuario */
 .boxUsersConected {
   width: 30%;
@@ -949,6 +951,8 @@ span {
 
   .inputChanel {
     width: 80%;
+   
+    height: 38px;
   }
 
   .nameChanelP {
@@ -960,7 +964,7 @@ span {
     width: 100%;
   }
   .formChanel {
-width: 90%;
+width: 80%;
 }
 .backImgAt {
 
@@ -1004,5 +1008,57 @@ width: 90%;
 }
 .boxPerfilUser label{
   font-size: 25px;
+}
+.buttonChanel{
+  font-size: 20px;
+  height: 38px;
+}
+.buttonChanelUser{
+  display: flex;
+  margin: 12px 0;
+  width: 80%;
+  background-color: #DEE8F1;
+
+  border-radius: 20px;
+}
+.buttonChan{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+ 
+  border-radius: 20px;
+}
+.buttonUser{
+  display: flex;
+  width: 50%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+}
+.blue{
+  background-color: #2F4152;
+  color: white ;
+}
+.titleNone{
+  display: none;
+}
+.perfilResponsive{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+.avatarResponsive{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.downResponsive{
+  width: 40%;
+  height: 40%;
 }
 }

@@ -10,7 +10,7 @@ import { MenuMessage } from './MenuMessage';
 
 
 
-export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat}) => {
+export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat,setUsers,setperfilUser}) => {
 
    // const setChanelUnique = props.setChanelUnique
 
@@ -136,10 +136,28 @@ useEffect(()=>{
       //    console.log('cerrando socket');
       // }
    }
+   function users(){
+      setUsers(true);
+      setperfilUser(false);
+      setChat(false)
+    }
+    function chanelButton(){
+      setUsers(false);
+      setperfilUser(false);
+      setChat(false)
+    }
    return (
 
       <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
-         <h2>Canales</h2>
+         <div className='buttonChanelUser'>
+            <div className='buttonChan blue' onClick={chanelButton}>
+               <h2>Canales</h2>
+            </div>
+            <div className='buttonUser'  onClick={users}>
+               <h2>Usuarios</h2>
+            </div>
+         </div>
+         <h2 className='titleNone'>Canales</h2>
          <div className='createChanel'>
 
             <form className='formChanel' onSubmit={handleSubmit(onSubmitChanel)}>
