@@ -20,22 +20,11 @@ export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
 
   }
   async function signOut() {
-    const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', { statusUser: 0, idUser: sessionUser.id }, axiosConfig);
+    const res = await axios.put('http://localhost:4000/user/active', { statusUser: 0, idUser: sessionUser.id }, axiosConfig);
     socket.emit('userDisconnected', sessionUser);
     navigate('/login')
   }
-  function perfil() {
-    setperfilUser(true);
-    setUsers(false);
-    setChat(false);
-    setcolor(true);
-  }
-  function users() {
-    setUsers(true);
-    setperfilUser(false);
-    setChat(false);
-    setcolor(false);
-  }
+
   function chanel() {
     setUsers(false);
     setperfilUser(false);
@@ -55,8 +44,7 @@ export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
 
         <Dropdown.Menu>
           <Dropdown.Item onClick={chanel}>Canales</Dropdown.Item>
-          <Dropdown.Item onClick={perfil}>Perfil</Dropdown.Item>
-          <Dropdown.Item onClick={users}>Usuarios</Dropdown.Item>
+
           <Dropdown.Item onClick={signOut} >Cerrar Sessión</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

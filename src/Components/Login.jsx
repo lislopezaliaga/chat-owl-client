@@ -21,12 +21,12 @@ export const Login = () => {
    const onSubmit = async (datUser) => {
       try {
          
-      const res = await axios.post('https://chatowl-2l34.onrender.com/auth/logIn', datUser, axiosConfig )
+      const res = await axios.post('http://localhost:4000/auth/logIn', datUser, axiosConfig )
       sessionStorage.setItem('token', JSON.stringify(res.data));
       const sessionToken = JSON.parse(sessionStorage.getItem('token'));
    
      
-         const respuesta = await axios.get('https://chatowl-2l34.onrender.com/users', {
+         const respuesta = await axios.get('http://localhost:4000/users', {
             headers: {
                // Authorization: document.cookie.substring(11),
                Authorization: sessionToken,
@@ -39,7 +39,7 @@ export const Login = () => {
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
 
       
-            const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
+            const res = await axios.put('http://localhost:4000/user/active', {statusUser:1, idUser:respuesta.data.id})
             const  obj={
                id:respuesta.data.id,
                imguser:respuesta.data.imguser,
