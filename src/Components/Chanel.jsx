@@ -136,21 +136,24 @@ useEffect(()=>{
       //    console.log('cerrando socket');
       // }
    }
+   function channel(){
+      setUsers(false);
+      setperfilUser(false);
+      setChat(false)
+      console.log('hola');
+    }
    function users(){
       setUsers(true);
       setperfilUser(false);
       setChat(false)
+      console.log('gt')
     }
-    function chanelButton(){
-      setUsers(false);
-      setperfilUser(false);
-      setChat(false)
-    }
+ 
    return (
 
       <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
          <div className='buttonChanelUser'>
-            <div className='buttonChan blue' onClick={chanelButton}>
+            <div className='buttonChan blue' onClick={channel}>
                <h2>Canales</h2>
             </div>
             <div className='buttonUser'  onClick={users}>
