@@ -5,7 +5,7 @@ import InputEmoji from "react-input-emoji";
 import axios from 'axios';
 import back from '../images/back.png';
 
-export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
+export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setperfilUser}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -227,7 +227,11 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
     
 
    }, [messages,messagesPersonal,chanelUnique,setMessageFilter])
-
+   function backChanel(){
+      setUsers(true);
+      setperfilUser(false);
+      setChat(false)
+   }
   
    return (
       <div className={chat?'boxMessage block':'boxMessage non'}>
@@ -235,7 +239,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
                   <div className='back'>
-                     <img className="buhoLogo" alt='imágen de un buho con un avión' src={back} />
+                     <img className="buhoLogo" alt='imágen de un buho con un avión' src={back} onClick={backChanel} />
                   </div>
                   <h2 id='chatNames'>{channel.namechanel || channel.name}</h2>
                </div>

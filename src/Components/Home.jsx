@@ -57,7 +57,7 @@ export const Home = () => {
       <div className='generalBoxBodyHome'>
 
        <Chanel setChanelUnique={setChanelUnique} perfilUser={perfilUser} usersChat={usersChat} setChat={setChat} chat={chat}></Chanel>
-        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} chat={chat}></Chats>
+        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} chat={chat} setUsers={setUsers} setChat={setChat} setperfilUser></Chats>
        
           <div className={perfilUser||usersChat?'boxUsersConected block':'boxUsersConected non'}>
            
