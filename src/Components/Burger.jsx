@@ -24,13 +24,24 @@ export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
     socket.emit('userDisconnected', sessionUser);
     navigate('/login')
   }
-
-  function chanel() {
+  function perfil() {
+    setperfilUser(true);
     setUsers(false);
-    setperfilUser(false);
     setChat(false);
     setcolor(true);
   }
+  // function users() {
+  //   setUsers(true);
+  //   setperfilUser(false);
+  //   setChat(false);
+  //   setcolor(false);
+  // }
+  // function chanel() {
+  //   setUsers(false);
+  //   setperfilUser(false);
+  //   setChat(false);
+  //   setcolor(true);
+  // }
   return (
     <div onClick={menuResponsive} className='menuBurger'>
       <Dropdown className='menuResponsive'>
@@ -43,8 +54,9 @@ export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item onClick={chanel}>Canales</Dropdown.Item>
-
+    
+          <Dropdown.Item onClick={perfil}>Perfil</Dropdown.Item>
+         
           <Dropdown.Item onClick={signOut} >Cerrar Sessión</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
