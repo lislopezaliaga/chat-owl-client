@@ -901,6 +901,14 @@ span {
 }
 
 @media only screen and (max-width: 580px) {
+  .avatarUser{
+    width: 35px;
+    height: 35px;
+  }
+  .messageDirect{
+    width: 35px;
+    height: 35px;
+  }
 
   .leftContainer {
     display: none;

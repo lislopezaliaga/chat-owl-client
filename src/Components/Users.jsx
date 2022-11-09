@@ -97,7 +97,6 @@ const disconnected = useCallback((userDissconnected) => {
 
 
 useEffect(() => {
-
    socket.on('userLogout', disconnected)
    return () => {
       socket.off('userLogout', disconnected)
