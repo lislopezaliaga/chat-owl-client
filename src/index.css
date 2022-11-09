@@ -564,6 +564,7 @@ h2 {
   margin: 1%;
 
 } */
+
 .buttonChanelUser{
   display: none;
 }
@@ -1015,7 +1016,7 @@ width: 80%;
 }
 .buttonChanelUser{
   display: flex;
-  margin: 12px 0;
+  margin: 25px 0;
   width: 80%;
   background-color: #DEE8F1;
 
@@ -1041,7 +1042,7 @@ width: 80%;
 }
 .blue{
   background-color: #2F4152;
-  color: white ;
+  color: white !important;
 }
 
 .titleNone{
@@ -1052,14 +1053,19 @@ width: 80%;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
+  margin-right: 5%;
 }
 .avatarResponsive{
   width: 38px;
   height: 38px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .downResponsive{
-  width: 40%;
-  height: 40%;
+  width: 18px;
+  height: 18px;
+}
+.volver{
+  width: 80% !important;
 }
 }

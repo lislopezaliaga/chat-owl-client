@@ -155,10 +155,10 @@ useEffect(()=>{
       <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
          <div className='buttonChanelUser'>
             <div  className={color?'buttonChan blue':'buttonChan'} onClick={channel}>
-               <h2>Canales</h2>
+               <h2 className={color?'blue':undefined}>Canales</h2>
             </div>
             <div className={color?'buttonUser':'buttonUser blue'}  onClick={users}>
-               <h2>Usuarios</h2>
+               <h2 className={!color?'blue':undefined}>Usuarios</h2>
             </div>
          </div>
          <h2 className='titleNone'>Canales</h2>

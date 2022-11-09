@@ -63,7 +63,7 @@ export const Home = () => {
        
           <div className={perfilUser||usersChat?'boxUsersConected block':'boxUsersConected non'}>
            
-              <PerfilUsuario perfilUser={perfilUser} />
+              <PerfilUsuario perfilUser={perfilUser} setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat}/>
             
          
             <Users setChanelUnique={setChanelUnique} usersChat={usersChat}  setChat={setChat} setUsers={setUsers} setperfilUser={setperfilUser} setcolor={setcolor} color={color}></Users>

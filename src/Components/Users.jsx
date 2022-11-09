@@ -122,13 +122,13 @@ function users(){
       <div  className={usersChat ?'boxBodyUsers block':'boxBodyUsers non'}>
         <div className='buttonChanelUser'>
             <div  className={color?'buttonChan blue':'buttonChan'} onClick={channel}>
-               <h2>Canales</h2>
+               <h2 className={color?'blue':undefined}>Canales</h2>
             </div>
             <div className={color?'buttonUser':'buttonUser blue'}  onClick={users}>
-               <h2>Usuarios</h2>
+               <h2 className={!color?'blue':undefined}>Usuarios</h2>
             </div>
          </div>
-         <h2 className='titleNone'>Conectados</h2>
+         <h2 className='titleNone '>Conectados</h2>
 
          <div className='userContent'>
             {nameUserGn.map((user, index) => (user.id !== sessionUser.id &&

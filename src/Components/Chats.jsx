@@ -15,7 +15,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
    const [messages, setMessages] = useState([]);
 
    const [messagesPersonal, setMessagesPersonal] = useState([]);
-   const [messagesPersonalBd, setMessagesPersonalBd] = useState([]);
+  
 
    const [messagesFilter, setMessageFilter] = useState([]);
 
@@ -79,8 +79,8 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
             idChannel: chanelUnique[0].id_channel,
             nameuser: dataUser.name
          }
-         axios.post('https://chatowl-2l34.onrender.com/messages', objMessage,axiosConfig)
-         .then(() => {
+         // axios.post('https://chatowl-2l34.onrender.com/messages', objMessage,axiosConfig)
+         // .then(() => {
             socket.emit('chatmessage', objMessage);
             const newMessage = {
                textmessage: message,
@@ -95,13 +95,13 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
             //    window.scrollTo(0, 1200);
 
             // }
-         })
-         .catch((error) => {
+         // })
+         // .catch((error) => {
 
 
-            console.log(error, 'error');
+         //    console.log(error, 'error');
 
-         });
+         // });
       }else if(chanelUnique[0].id){
 
          const dataDirectMessage={
@@ -112,8 +112,8 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
             nameUserRecivePersonal:chanelUnique[0].name,
             idUserRecivePersonal:chanelUnique[0].id,
           }
-         axios.post('https://chatowl-2l34.onrender.com/direct/messages', dataDirectMessage,axiosConfig)
-         .then(() => {
+         // axios.post('https://chatowl-2l34.onrender.com/direct/messages', dataDirectMessage,axiosConfig)
+         // .then(() => {
             socket.emit('dataDirectMessage', dataDirectMessage);
             const datasDirectMessage={
                textmessagePersonal:message,
@@ -126,13 +126,13 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
             setMessagesPersonal([...messagesPersonal, datasDirectMessage])
             setMessage('');
             
-         })
-         .catch((error) => {
+         // })
+         // .catch((error) => {
 
 
-            console.log(error, 'error');
+         //    console.log(error, 'error');
 
-         });
+         // });
       }
       }
 
@@ -241,7 +241,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setp
                   <div className='back'>
                      <img className="buhoLogo" alt='imágen de atra' src={back} onClick={backChanel} />
                   </div>
-                  <h2 id='chatNames'>{channel.namechanel || channel.name}</h2>
+                  <h2 id='chatNames' className='hh'>{channel.namechanel || channel.name} </h2>
                </div>
             ))
 
