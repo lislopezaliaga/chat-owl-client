@@ -10,7 +10,7 @@ import { MenuMessage } from './MenuMessage';
 
 
 
-export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat,setUsers,setperfilUser}) => {
+export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat,setUsers,setperfilUser,color,setcolor}) => {
 
    // const setChanelUnique = props.setChanelUnique
 
@@ -145,7 +145,8 @@ useEffect(()=>{
    function users(){
       setUsers(true);
       setperfilUser(false);
-      setChat(false)
+      setChat(false);
+      setcolor(false);
       console.log('gt')
     }
  
@@ -153,10 +154,10 @@ useEffect(()=>{
 
       <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
          <div className='buttonChanelUser'>
-            <div className='buttonChan blue' onClick={channel}>
+            <div  className={color?'buttonChan blue':'buttonChan'} onClick={channel}>
                <h2>Canales</h2>
             </div>
-            <div className='buttonUser'  onClick={users}>
+            <div className={color?'buttonUser':'buttonUser blue'}  onClick={users}>
                <h2>Usuarios</h2>
             </div>
          </div>
