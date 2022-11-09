@@ -66,7 +66,7 @@ export const Home = () => {
               <PerfilUsuario perfilUser={perfilUser} />
             
          
-            <Users setChanelUnique={setChanelUnique} usersChat={usersChat}  setChat={setChat} setUsers={setUsers}></Users>
+            <Users setChanelUnique={setChanelUnique} usersChat={usersChat}  setChat={setChat} setUsers={setUsers} setperfilUser={setperfilUser} setcolor={setcolor} color={color}></Users>
             
            
           </div>

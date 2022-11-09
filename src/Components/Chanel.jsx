@@ -140,14 +140,14 @@ useEffect(()=>{
       setUsers(false);
       setperfilUser(false);
       setChat(false)
-      console.log('hola');
+      setcolor(true);
     }
    function users(){
       setUsers(true);
       setperfilUser(false);
       setChat(false);
       setcolor(false);
-      console.log('gt')
+   
     }
  
    return (

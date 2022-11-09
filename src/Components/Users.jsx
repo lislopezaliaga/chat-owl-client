@@ -4,7 +4,7 @@ import messageImg from '../images/burbuja.png';
 import { socket } from './conection';
 import axios from 'axios';
 
-export const Users = ({setChanelUnique,usersChat, setChat,setUsers}) => {
+export const Users = ({setChanelUnique,usersChat, setChat,setperfilUser,setUsers,setcolor,color}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
@@ -104,13 +104,27 @@ useEffect(() => {
       // console.log('cerrando socket');
    }
 }, [disconnected]);
+function channel(){
+   setUsers(false);
+   setperfilUser(false);
+   setChat(false);
+   setcolor(true);
+ 
+ }
+function users(){
+   setUsers(true);
+   setperfilUser(false);
+   setChat(false);
+   setcolor(false);
+  
+ }
    return (
       <div  className={usersChat ?'boxBodyUsers block':'boxBodyUsers non'}>
-          <div className='buttonChanelUser'>
-            <div className='buttonChan blue' >
+        <div className='buttonChanelUser'>
+            <div  className={color?'buttonChan blue':'buttonChan'} onClick={channel}>
                <h2>Canales</h2>
             </div>
-            <div className='buttonUser' >
+            <div className={color?'buttonUser':'buttonUser blue'}  onClick={users}>
                <h2>Usuarios</h2>
             </div>
          </div>
