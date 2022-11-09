@@ -4,7 +4,7 @@ import messageImg from '../images/burbuja.png';
 import { socket } from './conection';
 import axios from 'axios';
 
-export const Users = ({setChanelUnique,usersChat}) => {
+export const Users = ({setChanelUnique,usersChat, setChat,setUsers}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
@@ -61,7 +61,9 @@ export const Users = ({setChanelUnique,usersChat}) => {
    }, [receiveUser]);
 
    function messageUser(idUser){
-      setChanelUnique(nameUserGn.filter((e)=>e.id===idUser))
+      setChanelUnique(nameUserGn.filter((e)=>e.id===idUser));
+      setChat(true);
+      setUsers(false);
 
    }
    useEffect(() => {

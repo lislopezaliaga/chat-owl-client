@@ -897,7 +897,7 @@ span {
   }
 
   .menuResponsive {
-    top: 1% !important;
+    top: .8% !important;
     right: 15px !important;
   }
 
@@ -953,5 +953,12 @@ width: 90%;
 }
 .non{
   display: none ;
+}
+.boxMessage {
+
+  width: 100%;
+}
+.menuBurger{
+  display: flex;
 }
 }

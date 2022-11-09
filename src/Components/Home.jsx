@@ -15,6 +15,7 @@ export const Home = () => {
   const navigate = useNavigate();
   const [perfilUser, setperfilUser] = useState(false);
   const [usersChat, setUsers] = useState(false);
+  const [chat, setChat] = useState(false);
 
   const [chanelUnique, setChanelUnique] = useState([{
     id_channel: 1,
@@ -49,21 +50,21 @@ export const Home = () => {
           <img className="cerrarSesion" onClick={signOut} alt='imágen de cerrarSesion' src={exit} />
         </div>
         <div className='menuHamburger'>
-          <Burger setperfilUser={setperfilUser} setUsers={setUsers}></Burger>
+          <Burger setperfilUser={setperfilUser} setUsers={setUsers} setChat={setChat}></Burger>
         </div>
       </div>
 
       <div className='generalBoxBodyHome'>
 
-       <Chanel setChanelUnique={setChanelUnique} perfilUser={perfilUser} usersChat={usersChat}></Chanel>
-        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} ></Chats>
+       <Chanel setChanelUnique={setChanelUnique} perfilUser={perfilUser} usersChat={usersChat} setChat={setChat} chat={chat}></Chanel>
+        <Chats chanelUnique={chanelUnique} setChanelUnique={setChanelUnique} chat={chat}></Chats>
        
           <div className={perfilUser||usersChat?'boxUsersConected block':'boxUsersConected non'}>
            
               <PerfilUsuario perfilUser={perfilUser} />
             
          
-            <Users setChanelUnique={setChanelUnique} usersChat={usersChat}></Users>
+            <Users setChanelUnique={setChanelUnique} usersChat={usersChat}  setChat={setChat} setUsers={setUsers}></Users>
             
            
           </div>

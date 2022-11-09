@@ -10,7 +10,7 @@ import { MenuMessage } from './MenuMessage';
 
 
 
-export const Chanel = ({setChanelUnique,perfilUser,usersChat}) => {
+export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat}) => {
 
    // const setChanelUnique = props.setChanelUnique
 
@@ -130,6 +130,7 @@ useEffect(()=>{
 
    const changeChanel = (name) => {
       setChanelUnique(nameChanelGn.filter((e)=>e.namechanel===name))
+      setChat(true)
       // return () => {
       //    socket.off('chatmessage')
       //    console.log('cerrando socket');
@@ -137,7 +138,7 @@ useEffect(()=>{
    }
    return (
 
-      <div  className={perfilUser||usersChat ?'non':'boxBodyHome block'} >
+      <div  className={perfilUser||usersChat||chat ?'non':'boxBodyHome block'} >
          <h2>Canales</h2>
          <div className='createChanel'>
 
@@ -154,7 +155,7 @@ useEffect(()=>{
          <div className='boxChanel'>
             {nameChanelGn.map((chanel, index) => (
                <div key={index} className='nameChanel' onClick={(e) => changeChanel(chanel.namechanel)}>
-                  <img className="avatar" alt='imágen de un avatar' src={chanelImg} />
+                  <img className="avatar" alt='imagen de un avatar' src={chanelImg} />
                   <p className='nameChanelP'>{chanel.namechanel}</p>
                   {chanel.id_creator === sessionUser.id && 
                   <MenuMessage 

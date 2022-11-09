@@ -5,7 +5,7 @@ import InputEmoji from "react-input-emoji";
 import axios from 'axios';
 
 
-export const Chats = ({ chanelUnique, setChanelUnique }) => {
+export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -229,7 +229,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
 
   
    return (
-      <div className='boxMessage'>
+      <div className={chat?'boxMessage block':'boxMessage non'}>
          {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
