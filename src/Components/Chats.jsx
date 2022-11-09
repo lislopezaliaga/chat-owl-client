@@ -3,7 +3,7 @@ import { socket } from './conection';
 import paper from '../images/paper.png';
 import InputEmoji from "react-input-emoji";
 import axios from 'axios';
-
+import back from '../images/back.png';
 
 export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
 
@@ -69,7 +69,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
       const date = new Date();
       const hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
       const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-
+      if(message.length>0){ 
     
       if(chanelUnique[0].id_channel){
          const objMessage = {
@@ -133,6 +133,7 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
             console.log(error, 'error');
 
          });
+      }
       }
 
       
@@ -233,6 +234,9 @@ export const Chats = ({ chanelUnique, setChanelUnique,chat}) => {
          {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
+                  <div className='back'>
+                     <img className="buhoLogo" alt='imágen de un buho con un avión' src={back} />
+                  </div>
                   <h2 id='chatNames'>{channel.namechanel || channel.name}</h2>
                </div>
             ))

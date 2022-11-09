@@ -138,7 +138,7 @@ useEffect(()=>{
    }
    return (
 
-      <div  className={perfilUser||usersChat||chat ?'non':'boxBodyHome block'} >
+      <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
          <h2>Canales</h2>
          <div className='createChanel'>
 
@@ -154,9 +154,9 @@ useEffect(()=>{
          </div>
          <div className='boxChanel'>
             {nameChanelGn.map((chanel, index) => (
-               <div key={index} className='nameChanel' onClick={(e) => changeChanel(chanel.namechanel)}>
-                  <img className="avatar" alt='imagen de un avatar' src={chanelImg} />
-                  <p className='nameChanelP'>{chanel.namechanel}</p>
+               <div key={index} className='nameChanel' >
+                  <img className="avatar" alt='imagen de un avatar' src={chanelImg} onClick={(e) => changeChanel(chanel.namechanel)} />
+                  <p onClick={(e) => changeChanel(chanel.namechanel)} className='nameChanelP'>{chanel.namechanel}</p>
                   {chanel.id_creator === sessionUser.id && 
                   <MenuMessage 
                      idChannel = {chanel.id_channel} 

@@ -422,6 +422,7 @@ h2 {
 
 .nameChanelP {
   margin: 2%;
+  width: 90%;
   font-size: 16px;
   color: #2F4152;
   font-weight: 500;
@@ -785,6 +786,9 @@ span {
 .menuHamburger {
   display: none;
 }
+.back{
+  display: none;
+}
 
 @media only screen and (max-width: 1200px) {
 
@@ -908,6 +912,7 @@ span {
   .boxUsersConected {
     display: flex;
     width: 100%;
+    font-size: 25px !important;
 
   }
   .modal-content {
@@ -928,7 +933,7 @@ span {
   }
 
   .nameChanelP {
-    font-size: 16px;
+    font-size: 22px;
   }
 
   .createChanel {
@@ -938,12 +943,12 @@ span {
   .formChanel {
 width: 90%;
 }
-.backImg {
+.backImgAt {
 
   width: 300px;
   height: 300px;
 }
-.boxWhite {
+.boxWhiteAt {
 
   width: 292px;
   height: 292px;
@@ -960,5 +965,22 @@ width: 90%;
 }
 .menuBurger{
   display: flex;
+}
+.menuMessageImg {
+  width: 30px;
+}
+.boxPerfilUser {
+  justify-content: space-between;
+}
+.nameuserconect {
+  font-size: 20px;
+  width: 70%;
+
+}
+.back{
+  display: flex;
+  /* width: 10%; */
+  margin-left: -9% !important;
+  align-items: center;
 }
 }

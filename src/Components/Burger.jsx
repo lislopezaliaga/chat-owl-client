@@ -15,7 +15,7 @@ export const Burger = ({setperfilUser,setUsers,setChat}) => {
     }
   };
   function menuResponsive() {
-
+    
   }
   async function signOut(){
     const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:0, idUser:sessionUser.id},axiosConfig);

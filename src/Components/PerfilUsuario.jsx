@@ -14,8 +14,8 @@ export const PerfilUsuario = ({perfilUser}) => {
   return (
     <div className={perfilUser? 'boxPerfilUser block':'boxPerfilUser non'}>
        <h2>Mi perfil</h2>
-        <div className='backImg'>
-            <div className='boxWhite'>
+        <div className='backImg backImgAt'>
+            <div className='boxWhite boxWhiteAt'>
                 <img  className='imgPerfilUser' src={sessionUser.imguser===null?userAvatarn:sessionUser.imguser} alt='imagen del usuario'/>
             </div>
         </div>
