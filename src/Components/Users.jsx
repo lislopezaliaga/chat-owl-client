@@ -71,24 +71,35 @@ export const Users = ({setChanelUnique,usersChat, setChat,setperfilUser,setUsers
       
 
    let users=[...nameUserbd, ...nameUser]
-// const result = users.reduce((acc,item)=>{
-            
-//    if(!acc.includes(item)){
 
-//       acc.push(item);
-//    }
-//    return acc;
-//  },[])
 let hash = {};
 users = users.filter(o => hash[o.id] ? false : hash[o.id] = true);
-// console.log(JSON.stringify(array));
-      setNameUsersGn(users)
 
+      setNameUsersGn(users)
               
    }, [nameUserbd,nameUser,setNameUsers])
-// console.log('socket',nameUser);
-// console.log('bd',nameUser);
-// console.log('Gn',nameUserGn);
+
+
+const userchanged = useCallback((user) => {
+  const userUpdate= nameUserGn.map((e) => {
+      if (e.id === user.id) {
+        e.imguser = user.imguser;
+        e.name = user.name;
+      }
+      return e;
+    });
+
+   setNameUsersGn(userUpdate);
+}, [setNameUsersGn,nameUserGn])
+
+
+useEffect(() => {
+   socket.on('userchanged', userchanged)
+   return () => {
+      socket.off('userchanged', userchanged)
+      // console.log('cerrando socket');
+   }
+}, [userchanged]);
 
 const disconnected = useCallback((userDissconnected) => {
    const users=nameUserGn.filter(e=>e.id!==userDissconnected.id)
