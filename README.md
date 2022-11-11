@@ -150,9 +150,9 @@ Se desarrolló un prototipo considerando las siguientes vistas: waiter,chef y ad
 Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/proto/Oc65xMtHYj5wr40X0EmV4T/Burguer-(Copy)?node-id=2%3A65&scaling=scale-down&page-id=0%3A1).
 
 ## 4. 📲Resultado final
-### 4.1 Vista waiter
-![waiter](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/mesero.gif)
-### Vista chef
+### 4.1 Vista Celular
+![chatowl](https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif)
+### Vista Desktop
 ![chef](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/cocinero.gif)
 ### 4.3 Vista admin
 ![admin](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/admin.gif)
