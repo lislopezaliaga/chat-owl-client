@@ -73,22 +73,24 @@ hoy.
 
 ***
 
-#### [Historia de usuario 1] Mesero/a debe poder tomar pedido de cliente
+#### [Historia de usuario 1] Usuario debe iniciar sesión
 
-Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala
-memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y
-que se puedan ir preparando en orden.
+Yo como usuario de Chatowl
+Quiero iniciar sesión
+Para conversar con las personas conectadas
+
 
 ##### Criterios de aceptación
 
-Lo que debe ocurrir para que se satisfagan las necesidades del usuario)
+Lo que debe ocurrir para que se satisfagan las necesidades del usuario.
 
-* Anotar nombre de cliente.
-* Agregar productos al pedido.
-* Eliminar productos.
-* Ver resumen y el total de la compra.
-* Enviar pedido a cocina (guardar en alguna base de datos).
-* Se ve y funciona bien en una _tablet_
+* Que exista un registro ( nombre , email , password )
+* El correo electrónico de usuario no se debe repetir.
+* Que exista un login ( email , password )
+* Que tenga un status ( activo e inactivo )
+* Que exista una vista (canal de general) para conversar con las personas conectadas
+* Que al ingresar a la app  sea visible solo los usuarios conectados para el resto de usuarios.
+
 
 ##### Definición de terminado
 
@@ -101,18 +103,22 @@ Lo acordado que debe ocurrir para decir que la historia está terminada.
 
 ***
 
-#### [Historia de usuario 2] Jefe de cocina debe ver los pedidos
+#### [Historia de usuario 2] Crear canales
 
-Yo como jefx de cocina quiero ver los pedidos de los clientes en orden y
-marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs
-que un pedido está listo para servirlo a un cliente.
+Yo como desarrolladora full-stack
+Quiero crear un canal sobre un tema de mi gusto
+Para comunicarme solo con las personas con mis mismos intereses
 
 ##### Criterios de aceptación
 
-* Ver los pedidos ordenados según se van haciendo.
-* Marcar los pedidos que se han preparado y están listos para servirse.
-* Ver el tiempo que tomó prepara el pedido desde que llegó hasta que se
-  marcó como completado.
+
+* Que el usuario pueda crear canales.
+* Que otros participantes puedan ver los canales.
+* Puede editar el nombre de los canales.
+* El usuario que creo el canal pueda eliminar el canal.
+* Que el usuario envíe mensajes en el nuevo canal.
+* Que otros usuarios puedan unirse al nuevo canal.
+* Si el usuario cierra sesión el canal permanece en la aplicación.
 
 ##### Definición de terminado
 
@@ -123,15 +129,97 @@ que un pedido está listo para servirlo a un cliente.
 
 ***
 
-#### [Historia de usuario 3] Meserx debe ver pedidos listos para servir
+#### [Historia de usuario 3] Compartir mensajes
 
-Yo como meserx quiero ver los pedidos que están preparados para entregarlos
-rápidamente a los clientes que las hicieron.
+Yo como usuario de Chatowl
+Quiero enviar un mensaje a todas las personas conectadas
+Para compartir intereses similares
+
 
 ##### Criterios de aceptación
 
-* Ver listado de pedido listos para servir.
-* Marcar pedidos que han sido entregados.
+
+* Que el usuario pueda enviar mensajes al canal principal.
+* Que otros participantes del canal puedan leer los mensajes.
+* Los mensajes solo permanecen cuando el usuario está activo en los canales.
+* Los mensajes de los otros canales no se deben ver en el chat general.
+* El nombre del usuario saldrá al lado del mensaje que envíe.
+
+
+##### Definición de terminado
+
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+
+***
+
+#### [Historia de usuario 4] Edición e perfil
+
+Yo como usuario de Chatowl
+Quiero agregar una foto a mi perfil
+Para que los demas usuarios lo vean
+
+##### Criterios de aceptación
+
+* El usuario puede agregar una foto a su perfil.
+* El usuario puede cambiar de nombre.
+* El usuario puede cambiar de foto de perfil.
+* En tiempo real los usuarios ven el cambio de perfil de dicho usuario.
+
+
+
+##### Definición de terminado
+
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+* Los datos se deben mantener íntegros, incluso después de que un pedido ha
+  terminado. Todo esto para poder tener estadísticas en el futuro.
+
+***
+
+***
+
+#### [Historia de usuario 5] Mensajes individuales
+
+Yo como usuario de Chatowl
+Quiero enviar mensajes a un usuario específico
+Para compartir intereses
+
+##### Criterios de aceptación
+
+* Que el usuario pueda enviar mensajes a un solo usuario.
+* Los mensajes son permanentes.
+* Puede compartir emojis en los mensajes.
+* El nombre del usuario saldrá al lado del mensaje que envíe.
+
+##### Definición de terminado
+
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+* Los datos se deben mantener íntegros, incluso después de que un pedido ha
+  terminado. Todo esto para poder tener estadísticas en el futuro.
+
+***
+***
+
+#### [Historia de usuario 6] Mensajes individuales
+
+Yo como usuario de Chatowl
+Quiero cerrar sesión
+Para poder salir de la aplicación
+
+
+##### Criterios de aceptación
+
+* Que el status del usuario cambie de activo a inactivo cuando cierra sesión.
+* Que el usuario desaparece de la lista de los conectados.
+
 
 ##### Definición de terminado
 
