@@ -146,16 +146,14 @@ rápidamente a los clientes que las hicieron.
 
 ***
 ##  3. 🎞Prototipo de alta fidelidad
-Se desarrolló un prototipo considerando las siguientes vistas: waiter,chef y admin.
+Se desarrolló un prototipo.
 Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/proto/Oc65xMtHYj5wr40X0EmV4T/Burguer-(Copy)?node-id=2%3A65&scaling=scale-down&page-id=0%3A1).
 
 ## 4. 📲Resultado final
 ### 4.1 Vista Celular
 <img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="300px">
 ### 4.2 Vista Desktop
-<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="700px">
-
-
+<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/desktop.gif" width="700px">
 
 ## 5. 👩🏻‍💻Tecnologías utilizadas:
 * React
