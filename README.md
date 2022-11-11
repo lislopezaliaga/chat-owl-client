@@ -20,47 +20,11 @@ compartir mensajes con todas las personas de la red y enviar emojis.
 
 Esta es la información que tenemos del cliente:
 
-> Somos **Burguer Queen**, una cadena de comida 24hrs.
-> Nuestra propuesta de servicio 24hrs ha tenido muy buena acogida y, para
-> seguir creciendo, necesitamos un sistema que nos ayude a tomar los pedidos de
-> nuestros clientes.
->
-> Tenemos 2 menús: uno muy sencillo para el desayuno:
->
-> | Ítem                      |Precio $|
-> |---------------------------|------|
-> | Café americano            |    5 |
-> | Café con leche            |    7 |
-> | Sandwich de jamón y queso |   10 |
-> | Jugo de frutas natural              |    7 |
->
-> Y otro menú para el resto del día:
->
-> | Ítem                      |Precio|
-> |---------------------------|------|
-> |**Hamburguesas**           |   **$**   |
-> |Hamburguesa simple         |    10|
-> |Hamburguesa doble          |    15|
-> |**Acompañamientos**        |   **$**   |
-> |Papas fritas               |     5|
-> |Aros de cebolla            |     5|
-> |**Para tomar**             |   **$**   |
-> |Agua 500ml                 |     5|
-> |Agua 750ml                 |     7|
-> |Bebida/gaseosa 500ml       |     7|
-> |Bebida/gaseosa 750ml       |     10|
->
-> **Importante:** Los clientes pueden escoger entre hamburguesas de res,
-> de pollo, o vegetariana. Además, por $ 1 adicional, pueden agregarle queso
-> o huevo.
->
-> Nuestros clientes son bastante indecisos, por lo que es muy común que cambien
-> su pedido varias veces antes de finalizarlo.
-
-La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
-con todos sus _productos_. El usuario debe poder ir eligiendo qué _productos_
-agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
-costo total.
+Queremos una aplicación que sea escalable, permite a los usuarios  enviar mensajes entre sí.
+Complementando las conversaciones regulares,que permita a los usuarios, interacciones individuales como en conversaciones de grupo.
+La aplicación tiene soporte integrado para SMS y que son iconos redondos de fotos de perfil que aparecen en la pantalla
+independientemente de qué aplicación esté abierta, mientras que ambas aplicaciones admiten varias cuentas,
+conversaciones con cifrado opcional extremo a extremo y reproducción.
 
 ## Planeamiento
 
@@ -168,8 +132,6 @@ Para que los demas usuarios lo vean
 * El usuario puede cambiar de foto de perfil.
 * En tiempo real los usuarios ven el cambio de perfil de dicho usuario.
 
-
-
 ##### Definición de terminado
 
 * Debes haber recibido _code review_ de al menos una compañera.
@@ -180,9 +142,6 @@ Para que los demas usuarios lo vean
   terminado. Todo esto para poder tener estadísticas en el futuro.
 
 ***
-
-***
-
 #### [Historia de usuario 5] Mensajes individuales
 
 Yo como usuario de Chatowl
@@ -205,7 +164,6 @@ Para compartir intereses
 * Los datos se deben mantener íntegros, incluso después de que un pedido ha
   terminado. Todo esto para poder tener estadísticas en el futuro.
 
-***
 ***
 
 #### [Historia de usuario 6] Mensajes individuales
