@@ -119,7 +119,7 @@ Para compartir intereses similares
 
 ***
 
-#### [Historia de usuario 4] Edición e perfil
+#### [Historia de usuario 4] Edición de perfil
 
 Yo como usuario de Chatowl
 Quiero agregar una foto a mi perfil
@@ -166,7 +166,7 @@ Para compartir intereses
 
 ***
 
-#### [Historia de usuario 6] Mensajes individuales
+#### [Historia de usuario 6] Cerrar sesión
 
 Yo como usuario de Chatowl
 Quiero cerrar sesión
@@ -199,7 +199,7 @@ Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/prot
 ### 4.1 Vista Celular
 <img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="300px">
 ### 4.1 Vista Desktop
-<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/desktop.gif" width="800px">
+<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/desktop.gif" width="850px">
 
 ## 5. 👩🏻‍💻Tecnologías utilizadas:
 * React
