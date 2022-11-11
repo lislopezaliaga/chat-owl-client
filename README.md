@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# 🍔Chatowl
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
 
-## Available Scripts
 
-In the project directory, you can run:
+* [1. Resumen del proyecto](#1-resumen)
+* [2. Desarrollo del proyecto](#3-requerimientos-del-cliente)
+* [3. Prototipo de alta fidelidad](#4-prototipo-de-alta-fidelidad)
+* [4. Resultado final](#5-resultado-final)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+***
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 1. Resumen
 
-### `npm test`
+Este proyecto es una interfaz web dinámica que te permite enviar mensajes en tiempo real, ambientado para usuarios que les gusta interactuar con su perfil,
+compartir mensajes con todas las personas de la red y enviar emojis.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Requerimientos del cliente
 
-### `npm run build`
+Esta es la información que tenemos del cliente:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Somos **Burguer Queen**, una cadena de comida 24hrs.
+> Nuestra propuesta de servicio 24hrs ha tenido muy buena acogida y, para
+> seguir creciendo, necesitamos un sistema que nos ayude a tomar los pedidos de
+> nuestros clientes.
+>
+> Tenemos 2 menús: uno muy sencillo para el desayuno:
+>
+> | Ítem                      |Precio $|
+> |---------------------------|------|
+> | Café americano            |    5 |
+> | Café con leche            |    7 |
+> | Sandwich de jamón y queso |   10 |
+> | Jugo de frutas natural              |    7 |
+>
+> Y otro menú para el resto del día:
+>
+> | Ítem                      |Precio|
+> |---------------------------|------|
+> |**Hamburguesas**           |   **$**   |
+> |Hamburguesa simple         |    10|
+> |Hamburguesa doble          |    15|
+> |**Acompañamientos**        |   **$**   |
+> |Papas fritas               |     5|
+> |Aros de cebolla            |     5|
+> |**Para tomar**             |   **$**   |
+> |Agua 500ml                 |     5|
+> |Agua 750ml                 |     7|
+> |Bebida/gaseosa 500ml       |     7|
+> |Bebida/gaseosa 750ml       |     10|
+>
+> **Importante:** Los clientes pueden escoger entre hamburguesas de res,
+> de pollo, o vegetariana. Además, por $ 1 adicional, pueden agregarle queso
+> o huevo.
+>
+> Nuestros clientes son bastante indecisos, por lo que es muy común que cambien
+> su pedido varias veces antes de finalizarlo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
+con todos sus _productos_. El usuario debe poder ir eligiendo qué _productos_
+agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
+costo total.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Planeamiento
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Definición del producto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El [_Product Owner_](https://youtu.be/r2hU7MVIzxs) nos
+presenta este _backlog_ que es el resultado de su trabajo con el cliente hasta
+hoy.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+***
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### [Historia de usuario 1] Mesero/a debe poder tomar pedido de cliente
 
-## Learn More
+Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala
+memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y
+que se puedan ir preparando en orden.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### Criterios de aceptación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Lo que debe ocurrir para que se satisfagan las necesidades del usuario)
 
-### Code Splitting
+* Anotar nombre de cliente.
+* Agregar productos al pedido.
+* Eliminar productos.
+* Ver resumen y el total de la compra.
+* Enviar pedido a cocina (guardar en alguna base de datos).
+* Se ve y funciona bien en una _tablet_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##### Definición de terminado
 
-### Analyzing the Bundle Size
+Lo acordado que debe ocurrir para decir que la historia está terminada.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
 
-### Making a Progressive Web App
+***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### [Historia de usuario 2] Jefe de cocina debe ver los pedidos
 
-### Advanced Configuration
+Yo como jefx de cocina quiero ver los pedidos de los clientes en orden y
+marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs
+que un pedido está listo para servirlo a un cliente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##### Criterios de aceptación
 
-### Deployment
+* Ver los pedidos ordenados según se van haciendo.
+* Marcar los pedidos que se han preparado y están listos para servirse.
+* Ver el tiempo que tomó prepara el pedido desde que llegó hasta que se
+  marcó como completado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##### Definición de terminado
 
-### `npm run build` fails to minify
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
+
+#### [Historia de usuario 3] Meserx debe ver pedidos listos para servir
+
+Yo como meserx quiero ver los pedidos que están preparados para entregarlos
+rápidamente a los clientes que las hicieron.
+
+##### Criterios de aceptación
+
+* Ver listado de pedido listos para servir.
+* Marcar pedidos que han sido entregados.
+
+##### Definición de terminado
+
+* Debes haber recibido _code review_ de al menos una compañera.
+* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+* Los datos se deben mantener íntegros, incluso después de que un pedido ha
+  terminado. Todo esto para poder tener estadísticas en el futuro.
+
+***
+
+***
+##  3. 🎞Prototipo de alta fidelidad
+Se desarrolló un prototipo considerando las siguientes vistas: waiter,chef y admin.
+Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/proto/Oc65xMtHYj5wr40X0EmV4T/Burguer-(Copy)?node-id=2%3A65&scaling=scale-down&page-id=0%3A1).
+
+## 4. 📲Resultado final
+### 4.1 Vista waiter
+![waiter](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/mesero.gif)
+### Vista chef
+![chef](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/cocinero.gif)
+### 4.3 Vista admin
+![admin](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/admin.gif)
+
+## 5. 👩🏻‍💻Tecnologías utilizadas:
+* React
+* JavaScript
+* HTML
+* CSS / SCSS
+* Postgresql
+* Express
+* Socket.io
+* Render
+* Cloudinary
+* Git and GitHub
+* ESLint
