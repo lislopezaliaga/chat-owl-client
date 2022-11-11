@@ -20,7 +20,7 @@ export const ModalEditChannel = ({ showEdit, handleCloseEdit, nameChannel, idCha
             idChannel: idChannel
            }
         
-       axios.put('http://localhost:4000/channel/update',channelUpdate,axiosConfig)
+       axios.put('https://chatowlapp-2syg.onrender.com/channel/update',channelUpdate,axiosConfig)
        .then((respuesta)=>{
         
             handleCloseEdit(); 

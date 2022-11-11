@@ -20,7 +20,7 @@ export const Burger = ({ setperfilUser, setUsers, setChat,setcolor }) => {
 
   }
   async function signOut() {
-    const res = await axios.put('http://localhost:4000/user/active', { statusUser: 0, idUser: sessionUser.id }, axiosConfig);
+    const res = await axios.put('https://chatowlapp-2syg.onrender.com/user/active', { statusUser: 0, idUser: sessionUser.id }, axiosConfig);
     socket.emit('userDisconnected', sessionUser);
     navigate('/login')
   }

@@ -12,7 +12,7 @@ export const ModalEliminar = ({ show, handleClose, nameChannel, idChannel}) => {
     }
   };
     function OndeleteChannel(){
-        axios.delete(`http://localhost:4000/channel/${idChannel}`,axiosConfig)
+        axios.delete(`https://chatowlapp-2syg.onrender.com/channel/${idChannel}`,axiosConfig)
         .then((response) => {
             handleClose();
             socket.emit('removeChannel', idChannel);
