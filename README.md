@@ -119,7 +119,7 @@ Para compartir intereses similares
 
 ***
 
-#### [Historia de usuario 4] Edición e perfil
+#### [Historia de usuario 4] Edición de perfil
 
 Yo como usuario de Chatowl
 Quiero agregar una foto a mi perfil
@@ -138,8 +138,6 @@ Para que los demas usuarios lo vean
 * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
 * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
 * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
-* Los datos se deben mantener íntegros, incluso después de que un pedido ha
-  terminado. Todo esto para poder tener estadísticas en el futuro.
 
 ***
 #### [Historia de usuario 5] Mensajes individuales
@@ -161,12 +159,10 @@ Para compartir intereses
 * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
 * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
 * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
-* Los datos se deben mantener íntegros, incluso después de que un pedido ha
-  terminado. Todo esto para poder tener estadísticas en el futuro.
 
 ***
 
-#### [Historia de usuario 6] Mensajes individuales
+#### [Historia de usuario 6] Cerrar sesión
 
 Yo como usuario de Chatowl
 Quiero cerrar sesión
@@ -185,21 +181,18 @@ Para poder salir de la aplicación
 * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
 * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
 * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
-* Los datos se deben mantener íntegros, incluso después de que un pedido ha
-  terminado. Todo esto para poder tener estadísticas en el futuro.
-
-***
 
 ***
 ##  3. 🎞Prototipo de alta fidelidad
 Se desarrolló un prototipo.
-Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/proto/Oc65xMtHYj5wr40X0EmV4T/Burguer-(Copy)?node-id=2%3A65&scaling=scale-down&page-id=0%3A1).
+Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/file/2YRsiKBWbBJ0KuzJ8xVoFy/chat-app).
 
 ## 4. 📲Resultado final
 ### 4.1 Vista Celular
 <img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="300px">
-### 4.1 Vista Desktop
-<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/desktop.gif" width="800px">
+
+### 4.2 Vista Desktop
+<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/desktop.gif" width="850px">
 
 ## 5. 👩🏻‍💻Tecnologías utilizadas:
 * React
