@@ -151,11 +151,11 @@ Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/prot
 
 ## 4. 📲Resultado final
 ### 4.1 Vista Celular
-![chatowl](https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif =500x250)
-### Vista Desktop
-![chef](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/cocinero.gif)
-### 4.3 Vista admin
-![admin](https://github.com/lislopezaliaga/LIM018-burger-queen/blob/main/imgReadme/admin.gif)
+<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="300px">
+### 4.2 Vista Desktop
+<img src="https://github.com/lislopezaliaga/chat-owl-client/blob/main/src/images/movil.gif" width="700px">
+
+
 
 ## 5. 👩🏻‍💻Tecnologías utilizadas:
 * React
