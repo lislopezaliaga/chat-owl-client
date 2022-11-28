@@ -21,7 +21,8 @@ export const Login = () => {
    const onSubmit = async (datUser) => {
       try {
          
-      const res = await axios.post('https://chatowlapp-2syg.onrender.com/auth/logIn', datUser, axiosConfig )
+      const res = await axios.post('https://chatowlapp-2syg.onrender.com/auth/logIn', datUser, axiosConfig );
+      console.log('res',res);
       sessionStorage.setItem('token', JSON.stringify(res.data));
       const sessionToken = JSON.parse(sessionStorage.getItem('token'));
    
@@ -29,7 +30,7 @@ export const Login = () => {
          const respuesta = await axios.get('https://chatowlapp-2syg.onrender.com/users', {
             headers: {
                // Authorization: document.cookie.substring(11),
-               Authorization: sessionToken,
+               Authorization: res.data,
                            
             }
          })
