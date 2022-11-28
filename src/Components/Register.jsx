@@ -15,7 +15,7 @@ export const Register = () => {
       body: JSON.stringify(datUser),
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", },
     });
-    const data = await res.json();
+    // const data = await res.json();
 
     navigate('/login')
   }
