@@ -19,7 +19,7 @@ export const Users = ({setChanelUnique,usersChat, setChat,setperfilUser,setUsers
       }
     };
    useEffect(() => {
-      axios.get('https://chatowlapp-2syg.onrender.com/usersConnected',axiosConfig)
+      axios.get('https://chatowl-2l34.onrender.com/usersConnected',axiosConfig)
          .then((response) => {
       
             const users = [];

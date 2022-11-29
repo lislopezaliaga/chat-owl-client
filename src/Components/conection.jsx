@@ -1,3 +1,3 @@
 import io from "socket.io-client";
 
-export const socket = io('https://chatowlapp-2syg.onrender.com');
+export const socket = io('https://chatowl-2l34.onrender.com');
